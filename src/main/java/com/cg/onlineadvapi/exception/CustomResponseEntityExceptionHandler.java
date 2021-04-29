@@ -11,6 +11,20 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 @RestController
 public class CustomResponseEntityExceptionHandler  extends ResponseEntityExceptionHandler{
-	
+	@ExceptionHandler
+	public final ResponseEntity<Object> handleLoginNameNotFoundException(LoginNameNotFoundException ex, WebRequest request){		
+		LoginNameNotFoundExceptionResponse exceptionResponse=new LoginNameNotFoundExceptionResponse(ex.getMessage());
+		return new ResponseEntity<Object>(exceptionResponse,HttpStatus.BAD_REQUEST);
+	}
+	@ExceptionHandler
+	public final ResponseEntity<Object> handleUserPwdNotFoundException(UserPwdNotFoundException ex, WebRequest request){		
+		UserPwdNotFoundExceptionResponse exceptionResponse=new UserPwdNotFoundExceptionResponse(ex.getMessage());
+		return new ResponseEntity<Object>(exceptionResponse,HttpStatus.BAD_REQUEST);
+	}
+	@ExceptionHandler
+	public final ResponseEntity<Object> handleFieldCannotBeBlankException(FieldCannotBeBlankException ex, WebRequest request){		
+		FieldCannotBeBlankExceptionResponse exceptionResponse=new FieldCannotBeBlankExceptionResponse(ex.getMessage());
+		return new ResponseEntity<Object>(exceptionResponse,HttpStatus.BAD_REQUEST);
+	}
 
 }

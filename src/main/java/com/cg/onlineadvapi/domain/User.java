@@ -21,7 +21,6 @@ import javax.validation.constraints.Size;
 @Table(name = "users")
 public class User {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer userId;
@@ -127,5 +126,6 @@ public class User {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+	
 	
 }
