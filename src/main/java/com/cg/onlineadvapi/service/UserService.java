@@ -1,5 +1,12 @@
 package com.cg.onlineadvapi.service;
 
-public class UserService {
+import javax.servlet.http.HttpSession;
 
+import com.cg.onlineadvapi.domain.User;
+
+
+public interface UserService {
+
+	public User authenticateUser(String loginName , String password , HttpSession session);
+	
 }
