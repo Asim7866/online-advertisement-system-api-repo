@@ -9,11 +9,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 
+/**
+ * 
+ * @author abhishek 
+ *
+ */
 @Service
 public class MapValidationErrorService {
 	
 	public ResponseEntity<?> mapValidationError(BindingResult result){
 		if(result.hasErrors()) {
+
 			Map<String, String> errorMap = new HashMap<>();
 			for(FieldError fieldError:result.getFieldErrors()) {
 				errorMap.put(fieldError.getField(), fieldError.getDefaultMessage());
