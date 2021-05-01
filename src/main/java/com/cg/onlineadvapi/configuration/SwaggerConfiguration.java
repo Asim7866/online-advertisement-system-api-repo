@@ -25,21 +25,7 @@ public class SwaggerConfiguration {
 		return new Docket(DocumentationType.SWAGGER_2)		
 				.select().apis(RequestHandlerSelectors.basePackage("com.cg.onlineadvapi.web"))
 				.paths(PathSelectors.regex("/api.*"))				
-				.build()
-				.apiInfo(metoInfo());
-		}
-
-		private ApiInfo metoInfo() {
-			// Customize the Swagger output
-			ApiInfo apiInfo = new ApiInfo(
-				"Online Advertisement System API", 
-				"Created By JEE Full Stack Batch - 1 Group - 1", 
-				"1.0", 
-				"Terms of Service", 
-				new Contact("JEE Full Stack", "https://www.capgemini.com/", "@capgemini.com"), 
-				"Capgemini Licence v.1.0", 
-				"https://www.capgemini.com/", new ArrayList<>());
-				return apiInfo;
-			}
-		}
+				.build();
+	}
+}
 

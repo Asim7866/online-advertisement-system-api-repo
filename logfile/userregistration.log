@@ -1,0 +1,809 @@
+"2021-05-01 16:58:00 - Starting OnlineAdvertisementSystemApiApplication using Java 15.0.2 on GSD with PID 5540 (D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo\target\classes started by preet classes in D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo)
+""2021-05-01 16:58:00 - No active profile set, falling back to default profiles: default
+""2021-05-01 16:58:01 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+""2021-05-01 16:58:01 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+""2021-05-01 16:58:10 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-01 16:58:10 - Finished Spring Data repository scanning in 181 ms. Found 4 JPA repository interfaces.
+""2021-05-01 16:58:15 - Tomcat initialized with port(s): 8080 (http)
+""2021-05-01 16:58:15 - Starting service [Tomcat]
+""2021-05-01 16:58:15 - Starting Servlet engine: [Apache Tomcat/9.0.45]
+""2021-05-01 16:58:16 - Initializing Spring embedded WebApplicationContext
+""2021-05-01 16:58:16 - Root WebApplicationContext: initialization completed in 15089 ms
+""2021-05-01 16:58:16 - HikariPool-1 - Starting...
+""2021-05-01 16:58:19 - HikariPool-1 - Start completed.
+""2021-05-01 16:58:19 - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/oasapi'
+""2021-05-01 16:58:19 - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-01 16:58:19 - HHH000412: Hibernate ORM core version 5.4.30.Final
+""2021-05-01 16:58:22 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2021-05-01 16:58:30 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2021-05-01 16:59:13 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-01 16:59:13 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 16:59:13 - LiveReload server is running on port 35729
+""2021-05-01 16:59:15 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-01 16:59:15 - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2021-05-01 16:59:16 - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-01 16:59:17 - Tomcat started on port(s): 8080 (http) with context path ''
+""2021-05-01 16:59:17 - Context refreshed
+""2021-05-01 16:59:17 - Found 1 custom documentation plugin(s)
+""2021-05-01 16:59:17 - Scanning for api listing references
+""2021-05-01 16:59:18 - Started OnlineAdvertisementSystemApiApplication in 79.43 seconds (JVM running for 82.454)
+""2021-05-01 16:59:35 - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-01 16:59:35 - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 16:59:35 - HikariPool-1 - Shutdown initiated...
+""2021-05-01 16:59:35 - HikariPool-1 - Shutdown completed.
+""2021-05-01 16:59:35 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Starting OnlineAdvertisementSystemApiApplication using Java 15.0.2 on GSD with PID 5540 (D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo\target\classes started by preet classes in D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo)
+""2021-05-01 16:59:35 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - No active profile set, falling back to default profiles: default
+""2021-05-01 16:59:37 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-01 16:59:37 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35 ms. Found 4 JPA repository interfaces.
+""2021-05-01 16:59:37 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+""2021-05-01 16:59:37 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2021-05-01 16:59:37 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+""2021-05-01 16:59:37 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2021-05-01 16:59:37 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1938 ms
+""2021-05-01 16:59:37 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+""2021-05-01 16:59:37 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+""2021-05-01 16:59:37 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/oasapi'
+""2021-05-01 16:59:38 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-01 16:59:38 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2021-05-01 16:59:40 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-01 16:59:40 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 16:59:40 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+""2021-05-01 16:59:41 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-01 16:59:41 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2021-05-01 16:59:41 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-01 16:59:42 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+""2021-05-01 16:59:42 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+""2021-05-01 16:59:42 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+""2021-05-01 16:59:42 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+""2021-05-01 16:59:42 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Started OnlineAdvertisementSystemApiApplication in 6.504 seconds (JVM running for 106.422)
+""2021-05-01 16:59:42 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+""2021-05-01 17:00:52 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+""2021-05-01 17:00:52 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+""2021-05-01 17:00:52 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+""2021-05-01 17:39:41 [HikariPool-2 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=4m1s918ms358µs316ns).
+""2021-05-01 19:07:26 [HikariPool-2 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=1h2m41s284ms194µs569ns).
+""2021-05-01 19:56:29 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Starting OnlineAdvertisementSystemApiApplication using Java 15.0.2 on GSD with PID 9096 (D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo\target\classes started by preet classes in D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo)
+""2021-05-01 19:56:29 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - No active profile set, falling back to default profiles: default
+""2021-05-01 19:56:29 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+""2021-05-01 19:56:29 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+""2021-05-01 19:57:13 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-01 19:57:14 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 409 ms. Found 4 JPA repository interfaces.
+""2021-05-01 19:57:17 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+""2021-05-01 19:57:17 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2021-05-01 19:57:17 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+""2021-05-01 19:57:17 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2021-05-01 19:57:17 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 47691 ms
+""2021-05-01 19:57:17 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+""2021-05-01 19:57:19 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+""2021-05-01 19:57:19 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/oasapi'
+""2021-05-01 19:57:19 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-01 19:57:20 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+""2021-05-01 19:57:20 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2021-05-01 19:57:20 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2021-05-01 19:57:24 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-01 19:57:24 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 19:57:24 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+""2021-05-01 19:57:26 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-01 19:57:26 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2021-05-01 19:57:27 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-01 19:57:28 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+""2021-05-01 19:57:28 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-01 19:57:28 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 19:57:28 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+""2021-05-01 19:57:28 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+""2021-05-01 19:57:28 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+""2021-05-01 19:57:28 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+""2021-05-01 19:57:28 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+""2021-05-01 19:58:27 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Starting OnlineAdvertisementSystemApiApplication using Java 15.0.2 on GSD with PID 1956 (D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo\target\classes started by preet classes in D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo)
+""2021-05-01 19:58:27 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - No active profile set, falling back to default profiles: default
+""2021-05-01 19:58:28 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+""2021-05-01 19:58:28 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+""2021-05-01 19:58:30 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-01 19:58:30 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 150 ms. Found 4 JPA repository interfaces.
+""2021-05-01 19:58:33 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8181 (http)
+""2021-05-01 19:58:33 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2021-05-01 19:58:33 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+""2021-05-01 19:58:34 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2021-05-01 19:58:34 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6918 ms
+""2021-05-01 19:58:35 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+""2021-05-01 19:58:37 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+""2021-05-01 19:58:37 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/oasapi'
+""2021-05-01 19:58:38 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-01 19:58:38 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+""2021-05-01 19:58:38 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2021-05-01 19:58:38 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2021-05-01 19:58:41 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-01 19:58:41 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 19:58:41 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+""2021-05-01 19:58:43 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-01 19:58:43 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2021-05-01 19:58:43 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-01 19:58:44 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8181 (http) with context path ''
+""2021-05-01 19:58:44 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+""2021-05-01 19:58:45 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+""2021-05-01 19:58:46 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+""2021-05-01 19:58:53 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Started OnlineAdvertisementSystemApiApplication in 27.218 seconds (JVM running for 28.571)
+""2021-05-01 19:59:52 [Thread-9] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-01 19:59:53 [Thread-9] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 19:59:54 [Thread-9] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+""2021-05-01 19:59:55 [Thread-9] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+""2021-05-01 20:00:38 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Starting OnlineAdvertisementSystemApiApplication using Java 15.0.2 on GSD with PID 5540 (D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo\target\classes started by preet classes in D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo)
+""2021-05-01 20:00:38 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - No active profile set, falling back to default profiles: default
+""2021-05-01 20:00:41 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-01 20:00:41 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 139 ms. Found 4 JPA repository interfaces.
+""2021-05-01 20:00:42 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8181 (http)
+""2021-05-01 20:00:42 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2021-05-01 20:00:42 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+""2021-05-01 20:00:43 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2021-05-01 20:00:43 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4095 ms
+""2021-05-01 20:00:43 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+""2021-05-01 20:00:43 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+""2021-05-01 20:00:43 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/oasapi'
+""2021-05-01 20:00:43 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-01 20:00:43 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2021-05-01 20:00:47 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-01 20:00:47 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 20:00:47 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+""2021-05-01 20:00:47 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-01 20:00:48 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2021-05-01 20:00:48 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-01 20:00:49 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8181 is already in use
+""2021-05-01 20:00:49 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-01 20:00:49 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 20:00:49 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+""2021-05-01 20:00:49 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+""2021-05-01 20:00:49 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+""2021-05-01 20:00:49 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+""2021-05-01 20:00:49 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8181 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8181 or configure this application to listen on another port.
+
+""2021-05-01 20:03:11 [Thread-1] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-01 20:03:11 [Thread-1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 20:03:11 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+""2021-05-01 20:03:11 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Starting OnlineAdvertisementSystemApiApplication using Java 15.0.2 on GSD with PID 5540 (D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo\target\classes started by preet classes in D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo)
+""2021-05-01 20:03:11 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - No active profile set, falling back to default profiles: default
+""2021-05-01 20:03:11 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+""2021-05-01 20:03:12 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Starting OnlineAdvertisementSystemApiApplication using Java 15.0.2 on GSD with PID 1956 (D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo\target\classes started by preet classes in D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo)
+""2021-05-01 20:03:12 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - No active profile set, falling back to default profiles: default
+""2021-05-01 20:03:13 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-01 20:03:14 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 294 ms. Found 4 JPA repository interfaces.
+""2021-05-01 20:03:14 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-01 20:03:14 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 184 ms. Found 4 JPA repository interfaces.
+""2021-05-01 20:03:15 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+""2021-05-01 20:03:15 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2021-05-01 20:03:15 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+""2021-05-01 20:03:15 [restartedMain] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2021-05-01 20:03:15 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3646 ms
+""2021-05-01 20:03:15 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+""2021-05-01 20:03:15 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+""2021-05-01 20:03:15 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2021-05-01 20:03:15 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+""2021-05-01 20:03:15 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+""2021-05-01 20:03:15 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/oasapi'
+""2021-05-01 20:03:15 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-01 20:03:15 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2021-05-01 20:03:15 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3639 ms
+""2021-05-01 20:03:15 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2021-05-01 20:03:15 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+""2021-05-01 20:03:16 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+""2021-05-01 20:03:16 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/oasapi'
+""2021-05-01 20:03:16 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-01 20:03:16 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2021-05-01 20:03:18 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-01 20:03:18 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 20:03:18 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+""2021-05-01 20:03:18 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-01 20:03:18 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 20:03:18 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+""2021-05-01 20:03:19 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-01 20:03:19 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-01 20:03:19 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2021-05-01 20:03:19 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2021-05-01 20:03:19 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-01 20:03:20 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-01 20:03:20 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+""2021-05-01 20:03:20 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+""2021-05-01 20:03:20 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+""2021-05-01 20:03:20 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+""2021-05-01 20:03:20 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Started OnlineAdvertisementSystemApiApplication in 8.713 seconds (JVM running for 295.21)
+""2021-05-01 20:03:20 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+""2021-05-01 20:03:21 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+""2021-05-01 20:03:21 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-01 20:03:21 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 20:03:21 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+""2021-05-01 20:03:21 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+""2021-05-01 20:03:21 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+""2021-05-01 20:03:21 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+""2021-05-01 20:03:21 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+""2021-05-01 20:04:40 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Starting OnlineAdvertisementSystemApiApplication using Java 15.0.2 on GSD with PID 10568 (D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo\target\classes started by preet classes in D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo)
+""2021-05-01 20:04:40 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - No active profile set, falling back to default profiles: default
+""2021-05-01 20:04:41 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+""2021-05-01 20:04:41 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+""2021-05-01 20:04:43 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-01 20:04:43 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 141 ms. Found 4 JPA repository interfaces.
+""2021-05-01 20:04:44 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+""2021-05-01 20:04:45 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2021-05-01 20:04:45 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+""2021-05-01 20:04:45 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2021-05-01 20:04:45 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4233 ms
+""2021-05-01 20:04:45 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+""2021-05-01 20:04:45 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+""2021-05-01 20:04:45 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/oasapi'
+""2021-05-01 20:04:46 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-01 20:04:46 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+""2021-05-01 20:04:46 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2021-05-01 20:04:47 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2021-05-01 20:04:49 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-01 20:04:49 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 20:04:49 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+""2021-05-01 20:04:50 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-01 20:04:51 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2021-05-01 20:04:51 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-01 20:04:51 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+""2021-05-01 20:04:51 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+""2021-05-01 20:04:51 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+""2021-05-01 20:04:51 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+""2021-05-01 20:04:52 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Started OnlineAdvertisementSystemApiApplication in 12.168 seconds (JVM running for 13.292)
+""2021-05-01 20:08:49 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Starting OnlineAdvertisementSystemApiApplication using Java 15.0.2 on GSD with PID 10280 (D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo\target\classes started by preet classes in D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo)
+""2021-05-01 20:08:49 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - No active profile set, falling back to default profiles: default
+""2021-05-01 20:08:49 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+""2021-05-01 20:08:49 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+""2021-05-01 20:08:51 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-01 20:08:52 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 156 ms. Found 4 JPA repository interfaces.
+""2021-05-01 20:08:53 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+""2021-05-01 20:08:53 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2021-05-01 20:08:53 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+""2021-05-01 20:08:54 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2021-05-01 20:08:54 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5309 ms
+""2021-05-01 20:08:54 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+""2021-05-01 20:08:55 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+""2021-05-01 20:08:55 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/oasapi'
+""2021-05-01 20:08:55 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-01 20:08:55 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+""2021-05-01 20:08:55 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2021-05-01 20:08:56 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2021-05-01 20:08:58 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-01 20:08:58 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 20:08:58 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+""2021-05-01 20:08:59 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-01 20:08:59 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2021-05-01 20:08:59 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-01 20:09:00 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+""2021-05-01 20:09:00 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-01 20:09:00 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 20:09:00 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+""2021-05-01 20:09:00 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+""2021-05-01 20:09:00 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+""2021-05-01 20:09:00 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+""2021-05-01 20:09:00 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+""2021-05-01 20:10:05 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Starting OnlineAdvertisementSystemApiApplication using Java 15.0.2 on GSD with PID 5656 (D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo\target\classes started by preet classes in D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo)
+""2021-05-01 20:10:05 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - No active profile set, falling back to default profiles: default
+""2021-05-01 20:10:06 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+""2021-05-01 20:10:06 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+""2021-05-01 20:10:08 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-01 20:10:08 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 127 ms. Found 4 JPA repository interfaces.
+""2021-05-01 20:10:10 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+""2021-05-01 20:10:10 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2021-05-01 20:10:10 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+""2021-05-01 20:10:10 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2021-05-01 20:10:10 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4285 ms
+""2021-05-01 20:10:10 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+""2021-05-01 20:10:11 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+""2021-05-01 20:10:11 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/oasapi'
+""2021-05-01 20:10:11 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-01 20:10:11 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+""2021-05-01 20:10:11 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2021-05-01 20:10:12 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2021-05-01 20:10:14 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-01 20:10:14 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 20:10:14 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+""2021-05-01 20:10:15 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-01 20:10:16 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2021-05-01 20:10:16 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-01 20:10:17 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+""2021-05-01 20:10:17 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+""2021-05-01 20:10:17 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+""2021-05-01 20:10:17 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+""2021-05-01 20:10:17 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Started OnlineAdvertisementSystemApiApplication in 12.494 seconds (JVM running for 13.879)
+""2021-05-01 20:10:24 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+""2021-05-01 20:10:24 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+""2021-05-01 20:10:24 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+""2021-05-01 20:12:32 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Starting OnlineAdvertisementSystemApiApplication using Java 15.0.2 on GSD with PID 5540 (D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo\target\classes started by preet classes in D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo)
+""2021-05-01 20:12:32 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - No active profile set, falling back to default profiles: default
+""2021-05-01 20:12:32 [Thread-1] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-01 20:12:32 [Thread-1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 20:12:32 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+""2021-05-01 20:12:32 [Thread-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+""2021-05-01 20:12:33 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Starting OnlineAdvertisementSystemApiApplication using Java 15.0.2 on GSD with PID 5656 (D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo\target\classes started by preet classes in D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo)
+""2021-05-01 20:12:33 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - No active profile set, falling back to default profiles: default
+""2021-05-01 20:12:34 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-01 20:12:34 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 165 ms. Found 4 JPA repository interfaces.
+""2021-05-01 20:12:35 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-01 20:12:35 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53 ms. Found 4 JPA repository interfaces.
+""2021-05-01 20:12:35 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+""2021-05-01 20:12:35 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2021-05-01 20:12:35 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+""2021-05-01 20:12:35 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2021-05-01 20:12:35 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2408 ms
+""2021-05-01 20:12:35 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+""2021-05-01 20:12:35 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+""2021-05-01 20:12:35 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/oasapi'
+""2021-05-01 20:12:36 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-01 20:12:36 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+""2021-05-01 20:12:36 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2021-05-01 20:12:36 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+""2021-05-01 20:12:36 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2021-05-01 20:12:36 [restartedMain] INFO  o.a.c.c.C.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2021-05-01 20:12:36 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4050 ms
+""2021-05-01 20:12:36 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Starting...
+""2021-05-01 20:12:37 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-01 20:12:37 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 20:12:37 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+""2021-05-01 20:12:38 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
+""2021-05-01 20:12:38 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/oasapi'
+""2021-05-01 20:12:38 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-01 20:12:38 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2021-05-01 20:12:38 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-01 20:12:38 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2021-05-01 20:12:38 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-01 20:12:39 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+""2021-05-01 20:12:39 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+""2021-05-01 20:12:39 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+""2021-05-01 20:12:39 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+""2021-05-01 20:12:39 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Started OnlineAdvertisementSystemApiApplication in 6.018 seconds (JVM running for 155.55)
+""2021-05-01 20:12:39 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+""2021-05-01 20:12:40 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-01 20:12:40 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 20:12:40 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+""2021-05-01 20:12:40 [Thread-7] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-01 20:12:40 [Thread-7] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 20:12:40 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+""2021-05-01 20:12:40 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-01 20:12:40 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2021-05-01 20:12:41 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-01 20:12:41 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+""2021-05-01 20:12:42 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Starting OnlineAdvertisementSystemApiApplication using Java 15.0.2 on GSD with PID 5656 (D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo\target\classes started by preet classes in D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo)
+""2021-05-01 20:12:42 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - No active profile set, falling back to default profiles: default
+""2021-05-01 20:12:42 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-01 20:12:43 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 61 ms. Found 4 JPA repository interfaces.
+""2021-05-01 20:12:43 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+""2021-05-01 20:12:43 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+""2021-05-01 20:12:43 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+""2021-05-01 20:12:43 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2021-05-01 20:12:43 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+""2021-05-01 20:12:43 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+""2021-05-01 20:12:43 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2021-05-01 20:12:43 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1566 ms
+""2021-05-01 20:12:43 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+""2021-05-01 20:12:44 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+""2021-05-01 20:12:44 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+""2021-05-01 20:12:44 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/oasapi'
+""2021-05-01 20:12:44 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-01 20:12:44 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2021-05-01 20:12:47 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Started OnlineAdvertisementSystemApiApplication in 14.725 seconds (JVM running for 11691.389)
+""2021-05-01 20:12:47 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+""2021-05-01 20:12:47 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-01 20:12:47 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 20:12:47 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+""2021-05-01 20:12:47 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-01 20:12:47 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2021-05-01 20:12:47 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-01 20:12:47 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+""2021-05-01 20:12:47 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-01 20:12:47 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 20:12:47 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+""2021-05-01 20:12:48 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+""2021-05-01 20:12:48 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+""2021-05-01 20:12:48 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+""2021-05-01 20:12:48 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+""2021-05-01 20:13:23 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat-2].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+""2021-05-01 20:13:23 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+""2021-05-01 20:13:23 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+""2021-05-01 20:13:24 [http-nio-8080-exec-1] INFO  c.cg.onlineadvapi.web.UserController - Inside Controller class
+""2021-05-01 20:13:24 [http-nio-8080-exec-1] INFO  c.cg.onlineadvapi.web.UserController - Request for adding and returning user has been received
+""2021-05-01 20:13:24 [http-nio-8080-exec-1] INFO  c.c.o.serviceImpl.UserServiceImpl - Inside MapValidationErrorServiseClass
+""2021-05-01 20:13:24 [http-nio-8080-exec-1] INFO  c.cg.onlineadvapi.web.UserController - Saved user has been returned
+""2021-05-01 20:13:24 [http-nio-8080-exec-1] INFO  c.c.o.serviceImpl.UserServiceImpl - Inside Service Implementation class
+""2021-05-01 20:13:24 [http-nio-8080-exec-1] INFO  c.c.o.serviceImpl.UserServiceImpl - Method to save user has been started
+""2021-05-01 20:13:26 [http-nio-8080-exec-1] INFO  c.c.o.serviceImpl.UserServiceImpl - User has been registered
+""2021-05-01 20:13:42 [http-nio-8080-exec-4] INFO  c.cg.onlineadvapi.web.UserController - Inside Controller class
+""2021-05-01 20:13:42 [http-nio-8080-exec-4] INFO  c.cg.onlineadvapi.web.UserController - Request for adding and returning user has been received
+""2021-05-01 20:13:42 [http-nio-8080-exec-4] INFO  c.c.o.serviceImpl.UserServiceImpl - Inside MapValidationErrorServiseClass
+""2021-05-01 20:13:42 [http-nio-8080-exec-4] INFO  c.cg.onlineadvapi.web.UserController - Saved user has been returned
+""2021-05-01 20:13:42 [http-nio-8080-exec-4] INFO  c.c.o.serviceImpl.UserServiceImpl - Inside Service Implementation class
+""2021-05-01 20:13:42 [http-nio-8080-exec-4] INFO  c.c.o.serviceImpl.UserServiceImpl - Method to save user has been started
+""2021-05-01 20:13:42 [http-nio-8080-exec-4] ERROR c.c.o.serviceImpl.UserServiceImpl - Exception occoured because sunny already exist
+""2021-05-01 20:13:42 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.cg.onlineadvapi.exception.UserAlreadyExistException: (E)User Already Exist]
+""2021-05-01 20:13:55 [http-nio-8080-exec-7] INFO  c.cg.onlineadvapi.web.UserController - Inside Controller class
+""2021-05-01 20:13:55 [http-nio-8080-exec-7] INFO  c.cg.onlineadvapi.web.UserController - Request for adding and returning user has been received
+""2021-05-01 20:13:55 [http-nio-8080-exec-7] INFO  c.c.o.serviceImpl.UserServiceImpl - Inside MapValidationErrorServiseClass
+""2021-05-01 20:13:55 [http-nio-8080-exec-7] INFO  c.cg.onlineadvapi.web.UserController - Saved user has been returned
+""2021-05-01 20:13:55 [http-nio-8080-exec-7] INFO  c.c.o.serviceImpl.UserServiceImpl - Inside Service Implementation class
+""2021-05-01 20:13:55 [http-nio-8080-exec-7] INFO  c.c.o.serviceImpl.UserServiceImpl - Method to save user has been started
+""2021-05-01 20:13:55 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.cg.onlineadvapi.exception.PasswordMismatchException: (E)Password and Confirm Password should be matching]
+""2021-05-01 20:14:06 [http-nio-8080-exec-6] INFO  c.cg.onlineadvapi.web.UserController - Inside Controller class
+""2021-05-01 20:14:06 [http-nio-8080-exec-6] INFO  c.cg.onlineadvapi.web.UserController - Request for adding and returning user has been received
+""2021-05-01 20:14:06 [http-nio-8080-exec-6] INFO  c.c.o.serviceImpl.UserServiceImpl - Inside MapValidationErrorServiseClass
+""2021-05-01 20:14:06 [http-nio-8080-exec-6] INFO  c.c.o.serviceImpl.UserServiceImpl - Checking for errors
+""2021-05-01 20:14:06 [http-nio-8080-exec-6] INFO  c.c.o.serviceImpl.UserServiceImpl - Storing the fieldName and the message into the map
+""2021-05-01 20:14:06 [http-nio-8080-exec-6] INFO  c.c.o.serviceImpl.UserServiceImpl - Returning the errorDetails map with status code
+""2021-05-01 20:14:06 [http-nio-8080-exec-6] ERROR c.cg.onlineadvapi.web.UserController - Fields consisted of error and error has been sent for same
+""2021-05-01 20:14:19 [http-nio-8080-exec-8] INFO  c.cg.onlineadvapi.web.UserController - Inside Controller class
+""2021-05-01 20:14:19 [http-nio-8080-exec-8] INFO  c.cg.onlineadvapi.web.UserController - Request for adding and returning user has been received
+""2021-05-01 20:14:19 [http-nio-8080-exec-8] INFO  c.c.o.serviceImpl.UserServiceImpl - Inside MapValidationErrorServiseClass
+""2021-05-01 20:14:19 [http-nio-8080-exec-8] INFO  c.c.o.serviceImpl.UserServiceImpl - Checking for errors
+""2021-05-01 20:14:19 [http-nio-8080-exec-8] INFO  c.c.o.serviceImpl.UserServiceImpl - Storing the fieldName and the message into the map
+""2021-05-01 20:14:19 [http-nio-8080-exec-8] INFO  c.c.o.serviceImpl.UserServiceImpl - Returning the errorDetails map with status code
+""2021-05-01 20:14:19 [http-nio-8080-exec-8] ERROR c.cg.onlineadvapi.web.UserController - Fields consisted of error and error has been sent for same
+""2021-05-01 21:52:58 [HikariPool-5 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-5 - Thread starvation or clock leap detected (housekeeper delta=1m19s911ms232µs290ns).
+""2021-05-01 21:54:48 [HikariPool-5 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-5 - Thread starvation or clock leap detected (housekeeper delta=1m50s237ms415µs45ns).
+""2021-05-01 22:16:14 [Thread-15] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-01 22:16:15 [Thread-15] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 22:16:15 [Thread-15] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
+""2021-05-01 22:16:16 [Thread-15] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.
+""2021-05-01 22:20:36 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Starting OnlineAdvertisementSystemApiApplication using Java 15.0.2 on GSD with PID 5656 (D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo\target\classes started by preet classes in D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo)
+""2021-05-01 22:20:36 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - No active profile set, falling back to default profiles: default
+""2021-05-01 22:21:26 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Starting OnlineAdvertisementSystemApiApplication using Java 15.0.2 on GSD with PID 5540 (D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo\target\classes started by preet classes in D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo)
+""2021-05-01 22:21:26 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - No active profile set, falling back to default profiles: default
+""2021-05-01 22:21:27 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-01 22:21:27 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 4 JPA repository interfaces.
+""2021-05-01 22:21:27 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+""2021-05-01 22:21:27 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2021-05-01 22:21:27 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+""2021-05-01 22:21:27 [restartedMain] INFO  o.a.c.c.C.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2021-05-01 22:21:27 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1403 ms
+""2021-05-01 22:21:27 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Starting...
+""2021-05-01 22:21:28 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Start completed.
+""2021-05-01 22:21:28 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/oasapi'
+""2021-05-01 22:21:28 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-01 22:21:28 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2021-05-01 22:21:57 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-01 22:22:02 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4939 ms. Found 4 JPA repository interfaces.
+""2021-05-01 22:22:28 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-01 22:22:28 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 22:22:28 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+""2021-05-01 22:22:28 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-01 22:22:28 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2021-05-01 22:22:28 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-01 22:22:28 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+""2021-05-01 22:22:28 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+""2021-05-01 22:22:28 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+""2021-05-01 22:22:28 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+""2021-05-01 22:22:29 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Started OnlineAdvertisementSystemApiApplication in 62.666 seconds (JVM running for 19473.477)
+""2021-05-01 22:22:29 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+""2021-05-01 22:22:31 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+""2021-05-01 22:22:32 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2021-05-01 22:22:32 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+""2021-05-01 22:22:34 [restartedMain] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2021-05-01 22:22:34 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 111369 ms
+""2021-05-01 22:22:36 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+""2021-05-01 22:22:42 [Thread-36] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-01 22:22:42 [Thread-36] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 22:22:42 [Thread-36] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Shutdown initiated...
+""2021-05-01 22:22:42 [Thread-36] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Shutdown completed.
+""2021-05-01 22:22:42 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+""2021-05-01 22:22:43 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/oasapi'
+""2021-05-01 22:22:43 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Starting OnlineAdvertisementSystemApiApplication using Java 15.0.2 on GSD with PID 5540 (D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo\target\classes started by preet classes in D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo)
+""2021-05-01 22:22:43 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - No active profile set, falling back to default profiles: default
+""2021-05-01 22:22:44 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-01 22:22:44 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 28 ms. Found 4 JPA repository interfaces.
+""2021-05-01 22:22:44 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+""2021-05-01 22:22:44 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2021-05-01 22:22:44 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+""2021-05-01 22:22:44 [restartedMain] INFO  o.a.c.c.C.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2021-05-01 22:22:44 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1589 ms
+""2021-05-01 22:22:44 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Starting...
+""2021-05-01 22:22:45 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Start completed.
+""2021-05-01 22:22:45 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/oasapi'
+""2021-05-01 22:22:45 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-01 22:22:45 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2021-05-01 22:22:46 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-01 22:22:46 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 22:22:47 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+""2021-05-01 22:22:47 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-01 22:22:47 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2021-05-01 22:22:48 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-01 22:22:48 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+""2021-05-01 22:22:48 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+""2021-05-01 22:22:48 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+""2021-05-01 22:22:48 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+""2021-05-01 22:22:48 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Started OnlineAdvertisementSystemApiApplication in 5.806 seconds (JVM running for 19493.173)
+""2021-05-01 22:22:48 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+""2021-05-01 22:22:58 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-01 22:23:02 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2021-05-01 22:25:09 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-01 22:25:09 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 22:25:13 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+""2021-05-01 22:25:56 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-01 22:26:38 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2021-05-01 22:26:59 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-01 22:27:13 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+""2021-05-01 22:27:13 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-01 22:27:13 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 22:27:13 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+""2021-05-01 22:27:13 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+""2021-05-01 22:27:14 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+""2021-05-01 22:27:15 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+""2021-05-01 22:27:16 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+""2021-05-01 22:28:43 [Thread-43] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-01 22:28:43 [Thread-43] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 22:28:43 [Thread-43] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Shutdown initiated...
+""2021-05-01 22:28:43 [Thread-43] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Shutdown completed.
+""2021-05-01 22:28:44 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Starting OnlineAdvertisementSystemApiApplication using Java 15.0.2 on GSD with PID 5540 (D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo\target\classes started by preet classes in D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo)
+""2021-05-01 22:28:44 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - No active profile set, falling back to default profiles: default
+""2021-05-01 22:28:44 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Starting OnlineAdvertisementSystemApiApplication using Java 15.0.2 on GSD with PID 5656 (D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo\target\classes started by preet classes in D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo)
+""2021-05-01 22:28:44 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - No active profile set, falling back to default profiles: default
+""2021-05-01 22:28:46 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-01 22:28:46 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 4 JPA repository interfaces.
+""2021-05-01 22:28:47 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+""2021-05-01 22:28:47 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2021-05-01 22:28:47 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+""2021-05-01 22:28:47 [restartedMain] INFO  o.a.c.c.C.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2021-05-01 22:28:47 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2581 ms
+""2021-05-01 22:28:47 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Starting...
+""2021-05-01 22:28:47 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-01 22:28:47 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 107 ms. Found 4 JPA repository interfaces.
+""2021-05-01 22:28:47 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+""2021-05-01 22:28:47 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2021-05-01 22:28:47 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+""2021-05-01 22:28:47 [restartedMain] INFO  o.a.c.c.C.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2021-05-01 22:28:47 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3297 ms
+""2021-05-01 22:28:47 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Starting...
+""2021-05-01 22:29:32 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Start completed.
+""2021-05-01 22:29:32 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/oasapi'
+""2021-05-01 22:29:32 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
+""2021-05-01 22:29:32 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/oasapi'
+""2021-05-01 22:29:32 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-01 22:29:32 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2021-05-01 22:29:32 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-01 22:29:33 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2021-05-01 22:29:34 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-01 22:29:34 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 22:29:35 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+""2021-05-01 22:29:35 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-01 22:29:35 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 22:29:35 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+""2021-05-01 22:29:35 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-01 22:29:35 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2021-05-01 22:29:35 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-01 22:29:36 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-01 22:29:36 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+""2021-05-01 22:29:36 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+""2021-05-01 22:29:36 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+""2021-05-01 22:29:36 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+""2021-05-01 22:29:36 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2021-05-01 22:29:36 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Started OnlineAdvertisementSystemApiApplication in 52.282 seconds (JVM running for 19900.627)
+""2021-05-01 22:29:36 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+""2021-05-01 22:29:36 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-01 22:29:36 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+""2021-05-01 22:29:36 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-01 22:29:36 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 22:29:36 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
+""2021-05-01 22:29:36 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.
+""2021-05-01 22:29:36 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+""2021-05-01 22:29:36 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+""2021-05-01 22:29:36 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+""2021-05-01 22:53:53 [Thread-49] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-01 22:53:55 [Thread-49] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 22:53:57 [Thread-49] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Shutdown initiated...
+""2021-05-01 22:53:57 [Thread-49] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Shutdown completed.
+""2021-05-01 22:59:37 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Starting OnlineAdvertisementSystemApiApplication using Java 15.0.2 on GSD with PID 5656 (D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo\target\classes started by preet classes in D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo)
+""2021-05-01 22:59:37 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - No active profile set, falling back to default profiles: default
+""2021-05-01 23:00:02 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Starting OnlineAdvertisementSystemApiApplication using Java 15.0.2 on GSD with PID 5540 (D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo\target\classes started by preet classes in D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo)
+""2021-05-01 23:00:02 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - No active profile set, falling back to default profiles: default
+""2021-05-01 23:00:03 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-01 23:00:03 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 4 JPA repository interfaces.
+""2021-05-01 23:00:03 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+""2021-05-01 23:00:03 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2021-05-01 23:00:03 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+""2021-05-01 23:00:03 [restartedMain] INFO  o.a.c.c.C.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2021-05-01 23:00:03 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 869 ms
+""2021-05-01 23:00:03 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Starting...
+""2021-05-01 23:00:04 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Start completed.
+""2021-05-01 23:00:04 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/oasapi'
+""2021-05-01 23:00:04 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-01 23:00:04 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2021-05-01 23:00:09 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-01 23:00:10 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-01 23:00:10 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 23:00:10 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+""2021-05-01 23:00:10 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-01 23:00:10 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2021-05-01 23:00:10 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-01 23:00:10 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+""2021-05-01 23:00:10 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+""2021-05-01 23:00:10 [restartedMain] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+""2021-05-01 23:00:10 [restartedMain] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+""2021-05-01 23:00:10 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Started OnlineAdvertisementSystemApiApplication in 8.368 seconds (JVM running for 21735.329)
+""2021-05-01 23:00:10 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+""2021-05-01 23:00:11 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1579 ms. Found 4 JPA repository interfaces.
+""2021-05-01 23:00:20 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+""2021-05-01 23:00:20 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2021-05-01 23:00:20 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+""2021-05-01 23:00:21 [restartedMain] INFO  o.a.c.c.C.[Tomcat-3].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2021-05-01 23:00:21 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 37265 ms
+""2021-05-01 23:00:21 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Starting...
+""2021-05-01 23:00:22 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Start completed.
+""2021-05-01 23:00:22 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/oasapi'
+""2021-05-01 23:00:24 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-01 23:00:25 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2021-05-01 23:00:31 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-01 23:00:31 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 23:00:31 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+""2021-05-01 23:00:34 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-01 23:00:35 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2021-05-01 23:00:35 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-01 23:00:36 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+""2021-05-01 23:00:36 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-01 23:00:36 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 23:00:36 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown initiated...
+""2021-05-01 23:00:36 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown completed.
+""2021-05-01 23:00:36 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+""2021-05-01 23:00:37 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+""2021-05-01 23:00:37 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+""2021-05-01 23:01:37 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - Starting OnlineAdvertisementSystemApiApplication using Java 15.0.2 on GSD with PID 7044 (D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo\target\classes started by preet classes in D:\Rupesh\springBootWorkSpace\online-advertisement-system-api-repo)
+""2021-05-01 23:01:37 [restartedMain] INFO  c.c.o.OnlineAdvertisementSystemApiApplication - No active profile set, falling back to default profiles: default
+""2021-05-01 23:01:37 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+""2021-05-01 23:01:38 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+""2021-05-01 23:01:43 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-01 23:01:43 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 226 ms. Found 4 JPA repository interfaces.
+""2021-05-01 23:01:48 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+""2021-05-01 23:01:48 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2021-05-01 23:01:48 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.45]
+""2021-05-01 23:01:48 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2021-05-01 23:01:48 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 10866 ms
+""2021-05-01 23:01:49 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+""2021-05-01 23:01:51 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+""2021-05-01 23:01:51 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/oasapi'
+""2021-05-01 23:01:53 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-01 23:01:54 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+""2021-05-01 23:01:55 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2021-05-01 23:01:56 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+""2021-05-01 23:02:03 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-01 23:02:03 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 23:02:03 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+""2021-05-01 23:02:15 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-01 23:02:17 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+""2021-05-01 23:02:17 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-01 23:02:19 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+""2021-05-01 23:02:19 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-01 23:02:19 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-01 23:02:19 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+""2021-05-01 23:02:19 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+""2021-05-01 23:02:19 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+""2021-05-01 23:02:19 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+""2021-05-01 23:02:19 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+"
