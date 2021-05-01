@@ -21,6 +21,12 @@ import com.cg.onlineadvapi.repository.UserRepository;
  * @author Sarvesh Barve
  *
  */
+/**
+ * 
+ * @author Abhishek
+ *
+ */
+
 @SpringBootTest
 public class UserServiceImplTest {
 	
@@ -39,6 +45,8 @@ public class UserServiceImplTest {
 	private User user4;
 	private User user5;
 	private User user6;
+	private User user7;
+	private User user8;
 	
 	
 	@Mock
@@ -57,6 +65,8 @@ public class UserServiceImplTest {
 		 user5 = new User(null,"sarv");
 		 user6 = new User(null,"sarvesh12345678");
 		 user = new User();
+		 user7=new User("admintemp","adminpass",1);
+		 user8=new User();
 	}
 	
 	/**
@@ -143,6 +153,32 @@ public class UserServiceImplTest {
 		Exception ex = assertThrows(UserNotFoundException.class, () ->userServiceImpl.authenticateUser(user3.getLoginName(),user6.getPassword(), session));
 		assertEquals("Password should be less than 12 character ", ex.getMessage());
 		
+	}
+	/**
+	 * test case to check if the given user is getting returned
+	 */
+	@Test
+	void test_authenticateUser_GivenUser_ShouldReturnUser() {
+		
+		BDDMockito.given(userRepository.findByLoginNameAndPassword(user7.getLoginName(), user7.getPassword()))
+		.willReturn(new User("admintemp","adminpass"));
+		User returnUser = userServiceImpl.authenticateUser(user7.getLoginName(),user7.getPassword() , session);
+		assertNotNull(returnUser.getLoginName());
+		assertNotNull(returnUser.getPassword());
+		
+		
+	}
+	
+	/**
+	 * test case to check exception is thrown when user is null 
+	 */
+	@Test
+	void test_authenticateUser_GivenNullUser_ShouldThrowNullUserException(){
+		
+		BDDMockito.given(userRepository.findByLoginNameAndPassword(user8.getLoginName(), user8.getPassword()))
+		.willReturn(null);
+		Exception ex = assertThrows(NullPointerException.class, () ->userServiceImpl.authenticateUser(user8.getLoginName(),user8.getPassword() , session));
+		assertEquals("Null User Cannot Login", ex.getMessage());
 	}
 	
 }
