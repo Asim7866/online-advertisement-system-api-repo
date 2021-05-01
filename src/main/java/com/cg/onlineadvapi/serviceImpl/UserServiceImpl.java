@@ -1,17 +1,14 @@
 package com.cg.onlineadvapi.serviceImpl;
-
-
 import javax.servlet.http.HttpSession;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.cg.onlineadvapi.domain.User;
 import com.cg.onlineadvapi.exception.FieldCannotBeBlankException;
-//import com.cg.onlineadvapi.exception.PasswordNotFoundException;
 import com.cg.onlineadvapi.exception.UserNotFoundException;
+import com.cg.onlineadvapi.exception.NullUserException;
 import com.cg.onlineadvapi.repository.UserRepository;
 import com.cg.onlineadvapi.service.UserService;
 
@@ -35,22 +32,14 @@ public class UserServiceImpl implements UserService{
 
 
 	
-	
-//	@Override
-//	public User saveOrUpdate(User user) {
-//		//log.info("Password is getting encrypted");
-//		//user.setPassword(encryptPwdImpl.getMd5(user.getPassword()));
-//		//user.setConfirmPassword(encryptPwdImpl.getMd5(user.getConfirmPassword()));
-//		return userRepository.save(user);
-//	}
-
-	
 	@Override
 	public User authenticateUser(String loginName, String password, HttpSession session) {
 		
 		User user = null;
-		
-		if(verifyloginName(loginName)&&verifyPassword(password)) {
+    if(loginName==null && password == null) {
+			throw new NullUserException("Null User Cannot Login");
+		}
+	  if(verifyloginName(loginName)&&verifyPassword(password)) {
 			if(loginName==null && password==null) {
 				throw new FieldCannotBeBlankException("Please Enter LoginName and Password to login");
 			}
@@ -106,5 +95,6 @@ public class UserServiceImpl implements UserService{
 			session.setAttribute("userRole", user.getRole());
 			
 		}
+
 
 }

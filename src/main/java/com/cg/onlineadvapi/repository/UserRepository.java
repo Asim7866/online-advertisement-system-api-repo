@@ -4,9 +4,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.cg.onlineadvapi.domain.User;
+
 /**
  * This repository is responsible  for operations on the database .
- * @author Sarvesh Barve
+ * @author abhishek 
  *
  */
 @Repository
@@ -20,6 +21,8 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 	 * @return user
 	 */
 	User findByLoginNameAndPassword(String loginName, String password);
-	
+
+
+
 
 }

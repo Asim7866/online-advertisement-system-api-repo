@@ -9,12 +9,7 @@ import com.cg.onlineadvapi.domain.User;
  *
  */
 public interface UserService {
-	/**
-	 * This saveOrUpdate method will register user in System
-	 * @param user to be saved
-	 * @return saved User Object
-	 */
-	//public User saveOrUpdate(User user);
+	
 
 	/**
 	 * This authenticateUser will authenticate the User and Send authenticated User if user is available in database
