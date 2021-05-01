@@ -13,7 +13,6 @@ import org.springframework.mock.web.MockHttpSession;
 
 import com.cg.onlineadvapi.domain.User;
 import com.cg.onlineadvapi.exception.FieldCannotBeBlankException;
-//import com.cg.onlineadvapi.exception.PasswordNotFoundException;
 import com.cg.onlineadvapi.exception.UserNotFoundException;
 import com.cg.onlineadvapi.repository.UserRepository;
 /**
@@ -65,7 +64,7 @@ public class UserServiceImplTest {
 		 user5 = new User(null,"sarv");
 		 user6 = new User(null,"sarvesh12345678");
 		 user = new User();
-		 user7=new User("admintemp","adminpass",1);
+		 user7=new User("admintemp","adminpass");
 		 user8=new User();
 	}
 	
