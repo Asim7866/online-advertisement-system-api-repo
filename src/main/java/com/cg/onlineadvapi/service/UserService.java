@@ -14,7 +14,7 @@ public interface UserService {
 	 * @param user to be saved
 	 * @return saved User Object
 	 */
-	public User saveOrUpdate(User user);
+	//public User saveOrUpdate(User user);
 
 	/**
 	 * This authenticateUser will authenticate the User and Send authenticated User if user is available in database
@@ -24,5 +24,7 @@ public interface UserService {
 	 * @return authenticated User 
 	 */
 	public User authenticateUser(String loginName , String password , HttpSession session);
+
+	
 
 }

@@ -30,9 +30,9 @@ public class User {
 	@NotBlank(message="Login name cannot be left blank")
 	@Column(unique=true)
 	private String loginName;
-	@Size(min = 8, max = 33, message = "Password should be greater than 7 and less than 13 characters")
+	@Size(min = 8, max = 12, message = "Password should be greater than 7 and less than 13 characters")
 	private String password;
-	@Size(min = 8, max = 33, message = "Password should be greater than 7 and less than 13 characters")
+	@Size(min = 8, max = 12, message = "Password should be greater than 7 and less than 13 characters")
 	private String confirmPassword;
 	@Size(min = 10, max = 10, message="Contact number should consist 10 digits")
 	@Pattern(regexp= "[0-9]+", message="Contact number should only contain numeric value")
@@ -49,6 +49,18 @@ public class User {
 	
 	public User() {
 		super();
+	}
+
+
+	public User(String string, String string2, String md5, String md52, String string3, String string4) {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public User(String loginName, String password) {
+		// TODO Auto-generated constructor stub
+		this.loginName =loginName;
+		this.password = password;
 	}
 
 
