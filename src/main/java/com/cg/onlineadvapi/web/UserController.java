@@ -15,7 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.onlineadvapi.domain.User;
 import com.cg.onlineadvapi.service.UserService;
 import com.cg.onlineadvapi.serviceImpl.MapValidationErrorService;
-
+/**
+ * 
+ * @author Abhishek Silelan
+ *
+ */
 @RestController
 @RequestMapping("api/")
 public class UserController {
@@ -36,11 +40,15 @@ public class UserController {
 //		if(loggedInUser==null) {
 //			return new ResponseEntity<String>("Login Failed! Enter correct Credential.",HttpStatus.BAD_REQUEST);
 //		}
-		return new ResponseEntity<String>(loggedInUser.getname()+" has Succesfully LoggedIn" , HttpStatus.OK);
+		if(loggedInUser.getRole().equals(1)) {
+			return new ResponseEntity<String>("Admin "+loggedInUser.getname()+" has Succesfully LoggedIn" , HttpStatus.OK);
+		}
+		return new ResponseEntity<String>("User "+loggedInUser.getname()+" has Succesfully LoggedIn" , HttpStatus.OK);
 	}
 	
 	@PostMapping("/logout")
 	public ResponseEntity<?> logUserOut(HttpSession session) {
+		
 		session.invalidate();
 		return new ResponseEntity<String>("Logged Out Successfully!!",HttpStatus.OK);
 	}

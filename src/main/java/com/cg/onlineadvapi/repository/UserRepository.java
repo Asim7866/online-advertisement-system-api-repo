@@ -14,6 +14,6 @@ import com.cg.onlineadvapi.domain.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer>{
 
-	public User findUserByLoginNameAndPassword(String loginName, String password);
+	public User findByLoginNameAndPassword(String loginName, String password);
 	
 }

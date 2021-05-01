@@ -12,5 +12,10 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestController
 public class CustomResponseEntityExceptionHandler  extends ResponseEntityExceptionHandler{
 	
+	@ExceptionHandler
+	public final ResponseEntity<Object> handleNullUserException(NullUserException ex, WebRequest request){		
+		NullUserExceptionResponse exceptionResponse=new NullUserExceptionResponse(ex.getMessage());
+		return new ResponseEntity<Object>(exceptionResponse,HttpStatus.BAD_REQUEST);
+	}
 
 }
