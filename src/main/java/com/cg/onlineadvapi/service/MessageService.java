@@ -1,5 +1,5 @@
 package com.cg.onlineadvapi.service;
 
-public class MessageService {
+public interface MessageService {
 
 }
