@@ -1,5 +1,6 @@
 package com.cg.onlineadvapi.serviceImpl;
-
-public class UserServiceImpl {
+import org.springframework.stereotype.Service;
+@Service
+public class UserServiceImpl implements UserService{
 
 }
