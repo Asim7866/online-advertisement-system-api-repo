@@ -14,14 +14,14 @@ import org.mockito.MockitoAnnotations;
 
 import com.cg.onlineadvapi.domain.User;
 import com.cg.onlineadvapi.repository.UserRepository;
-import com.cg.onlineadvapi.serviceImpl.AdminServiceImpl;
+import com.cg.onlineadvapi.serviceImpl.UserServiceImpl;
 
-class AdminServiceImplTest {
+class UserServiceImplTest {
 	@Mock
 	private UserRepository userRepository;
 	
 	@InjectMocks
-	private AdminServiceImpl adminServiceImpl;
+	private UserServiceImpl userServiceImpl;
 	
 	private User user;
 	
@@ -41,7 +41,7 @@ class AdminServiceImplTest {
 		vishal.add(user1);
 		BDDMockito.given(userRepository.findAll()).willReturn(vishal);
 		
-		List<User> shivam = adminServiceImpl.viewUserList();
+		List<User> shivam = userServiceImpl.viewUserList();
 		assertEquals(vishal.size(),shivam.size());
 		
 	}
