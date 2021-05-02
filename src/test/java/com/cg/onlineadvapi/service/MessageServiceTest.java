@@ -99,7 +99,6 @@ class MessageServiceTest {
     	assertNull(message.getSenderUserName());
     	assertNull(message.getReceiverId());
     	assertNull(message.getMessage());
-    	assertNull(message.getSeen_At());
     }
     
     @Test

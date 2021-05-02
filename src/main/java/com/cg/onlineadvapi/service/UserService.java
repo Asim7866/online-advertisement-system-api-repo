@@ -55,9 +55,4 @@ public interface UserService {
 	  */
 	 public void deleteById(Integer user_id);
 	 
-	 /**
-	  * This is dummy method just for checking purpose
-	  * @return List of user's present in the table
-	  */
-	 public List<User> viewAllUser();
 }
