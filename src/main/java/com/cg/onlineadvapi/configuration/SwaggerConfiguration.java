@@ -11,17 +11,22 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
- * This class is used to enable Swagger2
- * and configure info of the api documentation 
+ * This Class is Used to Enable Swagger2
+ * and Configure info of the API Documentation. 
  * @author mohdansa
  *
  */
 @EnableSwagger2
 @Configuration
 public class SwaggerConfiguration {
+	
+	/**
+	 * Configure Swagger and return Docket Instance.
+	 * @return Docket
+	 */
 	@Bean
 	public Docket productApi() {
-		//Configure Swagger and return Docket instace
+		
 		return new Docket(DocumentationType.SWAGGER_2)		
 				.select().apis(RequestHandlerSelectors.basePackage("com.cg.onlineadvertisementsystem.web"))
 				.paths(PathSelectors.regex("/api.*"))				
@@ -29,8 +34,12 @@ public class SwaggerConfiguration {
 				.apiInfo(metoInfo());
 		}
 
+		/**
+		 * It Customize the Swagger Output.
+		 * @return ApiInfo
+		 */
 		private ApiInfo metoInfo() {
-			// Customize the Swagger output
+			
 			ApiInfo apiInfo = new ApiInfo(
 				"Online Advertisement System API", 
 				"Created By JEE Full Stack Batch - 1 Group - 1", 
