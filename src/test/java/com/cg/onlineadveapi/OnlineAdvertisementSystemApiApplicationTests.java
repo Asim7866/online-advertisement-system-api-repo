@@ -1,4 +1,4 @@
-package com.cg.onlineadvertisementsystem;
+package com.cg.onlineadveapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
