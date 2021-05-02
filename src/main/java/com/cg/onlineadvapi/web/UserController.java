@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import com.cg.onlineadvapi.domain.User;
+import com.cg.onlineadvapi.exception.UserNotFoundException;
 import com.cg.onlineadvapi.service.UserService;
 import com.cg.onlineadvapi.serviceImpl.AdvertiseServiceImpl;
 import javax.servlet.http.HttpSession;
@@ -26,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.cg.onlineadvapi.command.LoginCommand;
+import com.cg.onlineadvapi.constant.UserRole;
 import com.cg.onlineadvapi.serviceImpl.MapValidationErrorService;
 import io.swagger.annotations.ApiOperation;
 
@@ -59,9 +61,11 @@ public class UserController {
 	
 	
 	//////////shivam:
+	
 	@GetMapping("/deleteUser/{userId}")
 	public String deleteUser(@PathVariable int userId)
-	{	//returns "UserId not found" message for invalid userId, otherwise returns "User deleted successfully"
+	{	
+		//returns "UserId not found" message for invalid userId, otherwise returns "User deleted successfully"
 		return userService.deleteUser(userId);
 	}
 	
@@ -70,7 +74,6 @@ public class UserController {
 	@GetMapping("/viewUserList")
 	public ResponseEntity<Object> viewUserList() {
 		logger.info("For finding all USERS list");
-
 		List<User> userList = userService.viewUserList();
 		if (userList.isEmpty()) // check if no user in found in list
 			return ((BodyBuilder) ResponseEntity.notFound()).body("No user found"); // returns "No user found" message
@@ -122,12 +125,13 @@ public class UserController {
 	
 	@PostMapping("/login")
 	public ResponseEntity<?> loginUser(@RequestBody LoginCommand user, BindingResult result, HttpSession session) {
+		if (session.getAttribute("user")==null) {
 		ResponseEntity<?> errorMap = mapValidationErrorService.mapValidationError(result);
 		if (errorMap != null) {
 			return errorMap;
 		}
 		User loggedInUser = userService.authenticateUser(user.getLoginName(), user.getPassword(), session);
-		if (loggedInUser.getRole().equals(1)) {
+		if (loggedInUser.getRole().equals(UserRole.USER_ROLE_ADMIN)) {
 			return new ResponseEntity<String>("Admin " + loggedInUser.getName() + " has Succesfully LoggedIn",
 					HttpStatus.OK);
 		}
@@ -135,6 +139,8 @@ public class UserController {
 				HttpStatus.OK);
 	}
 
+		return new ResponseEntity<String>("You have already logged In ", HttpStatus.BAD_REQUEST);
+	}
 	
 	
 	@PostMapping("/logout")
@@ -143,9 +149,10 @@ public class UserController {
 		return new ResponseEntity<String>("Logged Out Successfully!!", HttpStatus.OK);
 	}
 	
-	@ApiOperation(value = "User Updated")
+	@ApiOperation(value = "User Update")
 	@PatchMapping("")
-	public ResponseEntity<?> updateUser(@Valid @RequestBody User user, BindingResult result) {
+	public ResponseEntity<?> updateUser(@Valid @RequestBody User user, BindingResult result , HttpSession session) {
+		if (session.getAttribute("user")!=null) {
 		ResponseEntity<?> errorMessage = mapValidationErrorService.mapValidationError(result);
 		if (errorMessage != null)
 			return errorMessage;
@@ -153,16 +160,21 @@ public class UserController {
 		userService.saveOrUpdateUser(user);
 		return new ResponseEntity<String>("User Updated Successfully.", HttpStatus.CREATED);
 	}
-
+		return new ResponseEntity<String>("You have not Logged In || Please  Login First ", HttpStatus.BAD_REQUEST);
+	}	
 	
+
 	
 	@ApiOperation(value = "Delete user by Id")
 	@DeleteMapping("/delete User by Id/{user_id}")
-	public ResponseEntity<?> deleteUserById(@PathVariable Integer user_id) {
+	public ResponseEntity<?> deleteUserById(@PathVariable Integer user_id , HttpSession session) {
+		if (session.getAttribute("user")!=null) {
 		userService.deleteById(user_id);
 		return new ResponseEntity<String>("Id " + user_id + " user Deleted.", HttpStatus.OK);
 	}
-
+		return new ResponseEntity<String>("You have not Logged In || Please  Login First ", HttpStatus.BAD_REQUEST);
+	}	
+	
 	
 	
 }
