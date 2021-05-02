@@ -9,15 +9,13 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.validator.constraints.NotBlank;
 import com.fasterxml.jackson.annotation.JsonFormat;
-
 import jdk.jfr.Timestamp;
 
 /**
- * This Class is a Model Class for Message Entity Table.
+ * This Class is a Model Class for Message Entity Table
  * @author mohdansa
  */
 @Entity
@@ -25,13 +23,14 @@ import jdk.jfr.Timestamp;
 public class Message {
 
 	/**
-	 * This Field is used to Identify Message : Auto Generated.
-	 */
+  * This Field is used to Identify Message : Auto Generated.
+  * This field is used to identify Message : Auto Generated
+  */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer messageId;
 	/**
-	 * This Field is used to Identify Advertise.
+   * This Field is used to Identify Advertise.
 	 */
 	private Integer advertiseId;
 	/**
@@ -47,29 +46,42 @@ public class Message {
 	 */
 	private String senderUserName;
 	/**
-	 * This Field to get Message.
+   * This field is used to identify Advertise
 	 */
+	private Integer advertiseId;
+	/**
+	 * This field is used to identify Sender User
+	 */
+	private Integer senderId;
+	/**
+	 * This field is used to identify Reciever User
+	 */
+	private Integer recieverId;
+	/**
+	 * This field is used to identify Sender User Name
+	 */
+	private String senderUserName;
+	/**
+  * This field to get Message 
+  */
 	@NotBlank(message = "Message should not be Blank")
 	@Size(min=1 , max=160,message = "Message Should be between 1 to 160 character")
 	private String message;
 	/**
-	 * This Field is used to get Send Date.
-	 */
+  * This Field is used to get Send Date.
+  */
 	@JsonFormat(pattern="HH:mm dd-MM-yyyy")
 	private Date send_At;
-	/**
-	 * This Field is used to get Seen Date.
-	 */
-	@JsonFormat(pattern="HH:mm dd-MM-yyyy")
-	private Date seen_At;
 	
-	/**
-	 * Constructor without Parameter.
-	 */
+	
+  /**
+  * Constructor without Parameter.
+  * Constructor without parameter
+  */
 	public Message() {
 		super();
 	}
-	/**
+  /**
 	 * Constructor with Parameter used for Service Class testing.
 	 * @param advertiseId
 	 * @param senderId
@@ -91,7 +103,7 @@ public class Message {
 
 	/**
 	 * Getters and Setters.
-	 */
+   */
 	
 	public Integer getMessageId() {
 		return messageId;
@@ -111,13 +123,12 @@ public class Message {
 	public void setSenderId(Integer senderId) {
 		this.senderId= senderId;
 	}
-	
-	public Integer getReceiverId() {
+public Integer getReceiverId() {
 		return receiverId;
 	}
 	public void setReceiverId(Integer receiverId) {
 		this.receiverId = receiverId;
-	}
+  }
 	public String getSenderUserName() {
 		return senderUserName;
 	}
@@ -139,24 +150,15 @@ public class Message {
 	public Date getSeen_At() {
 		return seen_At;
 	}
-	public void setSeen_At(Date seen_At) {
-		this.seen_At = seen_At;
-	}
+
 	
-	/**
+/**
 	 * It Configure a Callback for PreInsert Events of the Field.
 	 */
-	@PrePersist
+  @PrePersist
 	protected void sendOn() {
 		this.send_At = new Date();
 	}
 
-	/**
-	 * It Configure a Callback for PreUpdate Events of the Field.
-	 */
-	@PreUpdate
-	protected void seenOn() {
-		this.seen_At = new Date();
-	}
-	
+
 }

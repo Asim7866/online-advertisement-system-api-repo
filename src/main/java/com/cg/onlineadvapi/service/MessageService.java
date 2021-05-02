@@ -1,7 +1,5 @@
 package com.cg.onlineadvapi.service;
-
 import java.util.List;
-
 import com.cg.onlineadvapi.domain.Message;
 /**
  * This Interface contains All the Business Logic.

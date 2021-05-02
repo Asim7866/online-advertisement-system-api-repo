@@ -28,7 +28,7 @@ public class SwaggerConfiguration {
 	public Docket productApi() {
 		
 		return new Docket(DocumentationType.SWAGGER_2)		
-				.select().apis(RequestHandlerSelectors.basePackage("com.cg.onlineadvertisementsystem.web"))
+				.select().apis(RequestHandlerSelectors.basePackage("com.cg.onlineadvapi.web"))
 				.paths(PathSelectors.regex("/api.*"))				
 				.build()
 				.apiInfo(metoInfo());

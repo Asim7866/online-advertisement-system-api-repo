@@ -1,5 +1,5 @@
 package com.cg.onlineadvapi.service;
 
-public class AdvertiseService {
+public interface AdvertiseService {
 
 }

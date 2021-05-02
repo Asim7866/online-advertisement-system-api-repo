@@ -65,6 +65,12 @@
     <artifactId>springfox-swagger2</artifactId>
     <version>2.9.2</version>
 </dependency>
+
+		<!-- Spring Boot Validation API - Start -->
+		<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
