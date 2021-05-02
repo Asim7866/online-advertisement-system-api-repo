@@ -1,12 +1,10 @@
 package com.cg.onlineadvapi.serviceImpl;
-
 import java.util.List;
-
+import com.cg.onlineadvapi.service.CategoryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.cg.onlineadvapi.domain.Category;
 import com.cg.onlineadvapi.exception.CategoryException;
 import com.cg.onlineadvapi.repository.CategoryRepository;

@@ -2,22 +2,26 @@ package com.cg.onlineadvapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
- * This class is starts up the Spring ApplicationContext
+ * This Class is Startup the Spring ApplicationContext.
  * @author mohdansa
  */
 @SpringBootApplication
 public class OnlineAdvertisementSystemApiApplication {
 
+	/**
+	 * Main Method is where Compiler starts Program Execution.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		/**
-		 * It bootstraps a spring application as a stand-alone application.
+		 * It bootstraps a Spring Application as a Stand-Alone Application.
 		 * It creates an appropriate ApplicationContext instance and load beans.
-		 * It also runs embedded Tomcat server in Spring web application.
+		 * It also runs embedded Tomcat server in Spring Web Application.
 		 */
 		SpringApplication.run(OnlineAdvertisementSystemApiApplication.class, args);
 		
 	}
 }
+ 

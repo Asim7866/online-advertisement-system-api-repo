@@ -1,7 +1,5 @@
 package com.cg.onlineadvapi.service;
-
 import com.cg.onlineadvapi.domain.Category;
-
 public interface CategoryService {
 	/**
 	 * This addCategory method will add new or update existing category in the database
