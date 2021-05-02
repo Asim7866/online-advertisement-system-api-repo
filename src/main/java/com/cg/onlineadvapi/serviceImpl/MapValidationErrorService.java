@@ -1,40 +1,31 @@
 package com.cg.onlineadvapi.serviceImpl;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-
+/**
+ * This Class is responsible to get all Field Error.
+ * @author mohdansa
+ */
 @Service
 public class MapValidationErrorService {
-	Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
-
 	
 	/**
-	 * 
-	 * @param result
-	 * @return this function will return the name of fields and associated message and status code otherwise null
+	 * It binds all the field error inside a Map
+	 * @param bindingResult
+	 * @return Map<String,String>
 	 */
-	
-	public ResponseEntity<?> mapValidationError(BindingResult result){
-		logger.info("Inside MapValidationErrorServiseClass");
-		if(result.hasErrors()) {
-			logger.info("Checking for errors");
-			Map<String, String> errorDetails = new HashMap<>();
-			for(FieldError fieldError:result.getFieldErrors()) {
-				logger.info("Storing the fieldName and the message into the map");
-				errorDetails.put(fieldError.getField(), fieldError.getDefaultMessage());
+	public ResponseEntity<?> mapValidationError(BindingResult bindingResult){
+		if(bindingResult.hasErrors()) {
+			Map<String, String> errorMap = new HashMap<>();
+			for(FieldError fieldError:bindingResult.getFieldErrors()) {
+				errorMap.put(fieldError.getField(), fieldError.getDefaultMessage());
 			}
-			logger.info("Returning the errorDetails map with status code");
-			return new ResponseEntity<Map<String,String>>(errorDetails, HttpStatus.BAD_REQUEST); 
-		}return null;
+			return new ResponseEntity<Map<String,String>>(errorMap, HttpStatus.BAD_REQUEST);
+		}
+		return null;
 	}
-
 }
+
 

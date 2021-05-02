@@ -7,15 +7,40 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+/**
+ * This Class is a ExceptionHandler Controller Adviser which handle ResponseEntityException.
+ * @author mohdansa
+ */
 @ControllerAdvice
-public class CustomResponseEntityExceptionHandler extends  ResponseEntityExceptionHandler{
-
+@RestController
+public class CustomResponseEntityExceptionHandler  extends ResponseEntityExceptionHandler{
+	
 	/**
-	 * 
+	 * It Handle ResponseEntityResponse for SameSenderException Exception Class.
 	 * @param ex
 	 * @param request
-	 * @return If User tries to register with existing login name then that exception is handled by this exception handler
+	 * @return ResponseEntity<Object>
 	 */
+	@ExceptionHandler
+	public final ResponseEntity<Object> handleSameSenderException(SameSenderException ex, WebRequest request) {
+		
+		SameSenderExceptionResponse exceptionResponse =  new SameSenderExceptionResponse(ex.getMessage());
+		return new ResponseEntity<Object>(exceptionResponse, HttpStatus.BAD_REQUEST);
+	}
+	
+	/**
+	 * It Handle ResponseEntityResponse for NoMessageException Exception Class.
+	 * @param ex
+	 * @param request
+	 * @return ResponseEntity<Object>
+	 */
+	@ExceptionHandler
+	public final ResponseEntity<Object> handleNoMessageException(NoMessageException ex, WebRequest request) {
+		
+		NoMessageExceptionResponse exceptionResponse =  new NoMessageExceptionResponse(ex.getMessage());
+		return new ResponseEntity<Object>(exceptionResponse, HttpStatus.BAD_REQUEST);
+	}
+	
 	@ExceptionHandler(UserAlreadyExistException.class)
 	public ResponseEntity<Object> userAlreadyExistException(UserAlreadyExistException ex, WebRequest request){
 		UserAlreadyExistExceptionResponse message = new UserAlreadyExistExceptionResponse(ex.getMessage());
