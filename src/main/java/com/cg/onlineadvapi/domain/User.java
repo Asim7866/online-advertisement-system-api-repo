@@ -51,15 +51,13 @@ public class User {
 	public User() {
 		super();
 	}
-	
-	public User(
-			@NotBlank(message = "name cannot be left empty") @Pattern(regexp = "^[a-zA-Z ]*$", message = "User name should only contain alphabets") String name,
+
+	public User(@NotBlank(message = "Login name cannot be left blank") String loginName,
 			@Size(min = 8, max = 33, message = "Password should be greater than 7 and less than 13 characters") String password) {
 		super();
-		this.name = name;
+		this.loginName = loginName;
 		this.password = password;
 	}
-
 
 	public Integer getUserId() {
 		return userId;

@@ -24,40 +24,43 @@ class UserServiceImplTest {
 	private UserServiceImpl userServiceImpl;
 	
 	private User user;
-	
+	private User user1;
+	private User user2;
+	private List<User> userList;	
 	@BeforeEach
 	public void setUp() {
 		MockitoAnnotations.initMocks(this);
 		user = new User();
+		userList = new ArrayList<>(); 
 		
 	}
 	
 	@Test
 	public void test_viewUserList_ShouldReturnListOfUser() {
-		User user = new User("shivam","adm");
-		User user1 = new User("vishal","admin");
-		List<User> vishal = new ArrayList<>(); 
-		vishal.add(user);
-		vishal.add(user1);
-		BDDMockito.given(userRepository.findAll()).willReturn(vishal);
+		user2 = new User("shivam","adm");
+		user1 = new User("vishal","admin");
 		
-		List<User> shivam = userServiceImpl.viewUserList();
-		assertEquals(vishal.size(),shivam.size());
+		userList.add(user2);
+		userList.add(user1);
+		BDDMockito.given(userRepository.findAll()).willReturn(userList);
 		
+		List<User> fetchData = userServiceImpl.viewUserList();
+		assertNotNull(userList);
+		assertNotNull(fetchData);
+		assertEquals(2,fetchData.size());
+		assertEquals(user2, fetchData.get(0));
+		assertEquals(user1, fetchData.get(1));
 	}
 	
 	@Test
 	public void test_viewUser_GivenUserId_ShouldReturnUser() {
-		User user = new User("vishal","admin");
-	
-		BDDMockito.given(userRepository.findByUserId(user.getUserId()))
-		.willReturn(user);
-		
-		
-		assertEquals("vishal",user.getname());
-		assertEquals("admin", user.getPassword());
-	}
+	User user = new User("vishal","admin");
 
+		BDDMockito.given(userRepository.findByUserId(0)).willReturn(user);
+		User fetchedUser =userServiceImpl.viewUser(0);
+		assertEquals(user,fetchedUser);
+//		assertEquals(user.getPassword(), fetchedUser.getPassword());
+	}
 	
 
 }
