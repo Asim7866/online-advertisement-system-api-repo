@@ -1,5 +1,8 @@
 package com.cg.onlineadvapi.serviceImpl;
+import org.springframework.stereotype.Service;
 
-public class CategoryServiceImpl {
+import com.cg.onlineadvapi.service.CategoryService;
+@Service
+public class CategoryServiceImpl implements CategoryService{
 
 }

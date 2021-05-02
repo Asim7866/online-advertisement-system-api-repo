@@ -1,5 +1,5 @@
 package com.cg.onlineadvapi.repository;
 
-public class AddressRepository {
+public interface AddressRepository {
 
 }
