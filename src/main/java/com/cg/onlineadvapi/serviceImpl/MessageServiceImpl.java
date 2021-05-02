@@ -1,5 +1,6 @@
 package com.cg.onlineadvapi.serviceImpl;
-
-public class MessageServiceImpl {
+import org.springframework.stereotype.Service;
+@Service
+public class MessageServiceImpl implements MessageService{
 
 }
