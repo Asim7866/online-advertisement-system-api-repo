@@ -1,8 +1,6 @@
 package com.cg.onlineadvapi.domain;
 
 import javax.persistence.Embeddable;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 
@@ -15,16 +13,12 @@ import javax.validation.constraints.Pattern;
 @Embeddable
 public class Address {
 	
-	@NotBlank(message="Room No cannot be left empty")
-	@Pattern(regexp = "^[a-zA-Z0-9 ]*$")
 	private String roomNo;
-	@NotBlank(message="Street cannot be left empty")
-	@Pattern(regexp = "^[a-zA-Z0-9 ]*$")
+	
 	private String street;
-	@NotBlank(message="City cannot be left empty")
-	@Pattern(regexp = "^[a-zA-Z ]*$")
+	
 	private String city;
-	@NotNull(message="Street cannot be left empty")
+	
 	@Pattern(regexp = "^[0-9]*$")
 	private Integer pincode;
 	

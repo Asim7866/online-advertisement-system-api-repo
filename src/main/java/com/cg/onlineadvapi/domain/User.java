@@ -17,6 +17,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -31,9 +33,9 @@ public class User {
 	@NotBlank(message="Login name cannot be left blank")
 	@Column(unique=true)
 	private String loginName;
-	@Size(min = 8, max = 33, message = "Password should be greater than 7 and less than 13 characters")
+	@Size(min = 8, max = 12, message = "Password should be greater than 7 and less than 13 characters")
 	private String password;
-	@Size(min = 8, max = 33, message = "Password should be greater than 7 and less than 13 characters")
+	@Size(min = 8, max = 12, message = "Password should be greater than 7 and less than 13 characters")
 	private String confirmPassword;
 	@Size(min = 10, max = 10, message="Contact number should consist 10 digits")
 	@Pattern(regexp= "[0-9]+", message="Contact number should only contain numeric value")
@@ -44,13 +46,38 @@ public class User {
 	private Integer role = 2;
 	@Embedded
 	private Address address;
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.REMOVE)
 	@JoinColumn(name="user_id" ,referencedColumnName = "userId")
 	private List<Advertise> advertise=new ArrayList<>();
-	
+
 	public User() {
 		super();
 	}
+	
+	
+	
+
+	public User( String loginName, String password) {
+		super();
+		this.loginName = loginName;
+		this.password = password;
+	}
+
+
+
+
+	public User(String name, String loginName, String password, String confirmPassword, String contactNo, String email, Integer role) {
+		super();
+		this.name = name;
+		this.loginName = loginName;
+		this.password = password;
+		this.confirmPassword = confirmPassword;
+		this.contactNo = contactNo;
+		this.email = email;
+		this.role = role;
+	}
+
 
 
 	public Integer getUserId() {
@@ -61,11 +88,11 @@ public class User {
 		this.userId = userId;
 	}
 
-	public String getname() {
+	public String getName() {
 		return name;
 	}
 
-	public void setname(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -127,5 +154,15 @@ public class User {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", loginName=" + loginName + ", password=" + password + ", confirmPassword="
+				+ confirmPassword + ", contactNo=" + contactNo + ", email=" + email + ", role=" + role + "]";
+	}
+	
+	
 	
 }
