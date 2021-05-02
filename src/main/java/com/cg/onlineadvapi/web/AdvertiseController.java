@@ -9,24 +9,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.onlineadvapi.domain.Advertise;
-import com.cg.onlineadvapi.service.AdminService;
+import com.cg.onlineadvapi.service.AdvertiseService;
 
 @RestController
 
 @RequestMapping("/api")
 public class AdvertiseController {
 	@Autowired
-	private AdminService adminService;
+	private AdvertiseService advertiseService;
 	
 	@PostMapping("/viewAdvertisementByUser")
 	public ResponseEntity<Object> viewAdvertisementByUser(int userId) throws Exception
 	{	//ResponseEntity<Object> fetchedData=adminService.viewAdvertisementByUser(userId);
 		
-		return adminService.viewAdvertisementByUser(userId);
+		return advertiseService.viewAdvertisementByUser(userId);
 	}
 	@PostMapping("/deleteAdvertise")
 	public String deleteAdvertise(int advertisementId)
 	{	//returns "AdvertisementId not found" message for invalid AdvertisementId, otherwise returns "Advertisement deleted successfully"
-		return adminService.deleteAdvertise(advertisementId);
+		return advertiseService.deleteAdvertise(advertisementId);
 	}
 }

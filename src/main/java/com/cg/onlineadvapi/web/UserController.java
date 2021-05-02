@@ -13,34 +13,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.onlineadvapi.domain.User;
-import com.cg.onlineadvapi.service.AdminService;
+import com.cg.onlineadvapi.service.UserService;
 
 @RestController
 
 @RequestMapping("/api")
 public class UserController {
 	@Autowired
-	private AdminService adminService;
+	private UserService userService;
 	
-	@GetMapping("/viewUserList")
-	public ResponseEntity<Object> viewUserList()
-	{	List<User> userList=adminService.viewUserList();
-		if(userList.isEmpty())		//check if no user in found in list
-			return ((BodyBuilder) ResponseEntity.notFound()).body("No user found"); //returns "No user found" message if empty list is returned
-		return ResponseEntity.accepted().body(userList); //returns the user details if found..
-			
-	}
-	@GetMapping("/viewUser/{userId}")
-	public ResponseEntity<Object> viewUser(@PathVariable int userId)
-	{	User user=adminService.viewUser(userId);
 	
-		if(Objects.isNull(user.getUserId()))		//check if null object returned because of invalid user id
-			return ((BodyBuilder) ResponseEntity.notFound()).body("UserId not found"); //returns "UserId not found" message if null object is returned
-		return ResponseEntity.accepted().body(user); //returns the user details if user id is found..
-	}
 	@GetMapping("/deleteUser/{userId}")
 	public String deleteUser(@PathVariable int userId)
 	{	//returns "UserId not found" message for invalid userId, otherwise returns "User deleted successfully"
-		return adminService.deleteUser(userId);
+		return userService.deleteUser(userId);
 	}
 }

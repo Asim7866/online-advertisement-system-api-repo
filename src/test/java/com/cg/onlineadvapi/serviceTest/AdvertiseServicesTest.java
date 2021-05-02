@@ -21,29 +21,27 @@ import com.cg.onlineadvapi.domain.Advertise;
 import com.cg.onlineadvapi.domain.Category;
 import com.cg.onlineadvapi.repository.AdvertiseRepository;
 import com.cg.onlineadvapi.repository.UserRepository;
-import com.cg.onlineadvapi.service.AdminService;
-import com.cg.onlineadvapi.serviceImpl.AdminServiceImpl;
+import com.cg.onlineadvapi.serviceImpl.AdvertiseServiceImpl;
+import com.cg.onlineadvapi.serviceImpl.UserServiceImpl;
 import com.cg.onlineadvapi.web.CategoryController;
 
 @SpringBootTest
-class AdminServicesTest {
+class AdvertiseServicesTest {
 	// creating mock objects
 	@Mock
 	private AdvertiseRepository advertiseRepository;
-	@Mock
-	private UserRepository userRepository;
+	
 
 	// injecting mocks to class instance
 	@InjectMocks
-	private AdminServiceImpl adminServiceImpl;
+	private AdvertiseServiceImpl advertiseServiceImpl;
 
 	@BeforeEach
 	public void initMocks() {
-		MockitoAnnotations.initMocks(this); // initializing mock objects
+		MockitoAnnotations.initMocks(this); // initializing mock objects before every test case
 	}
 
 	// Stubs Required
-	private Advertise demoAdvertise;
 	List<Advertise> advertiseList1;
 	List<Advertise> advertiseList2;
 
@@ -58,7 +56,7 @@ class AdminServicesTest {
 		// setting up mock object's method to return list of advertisement, when called
 		BDDMockito.given(advertiseRepository.viewAdvertisementByUser(0)).willReturn(advertiseList1);
 
-		advertiseList2 = (List<Advertise>) adminServiceImpl.viewAdvertisementByUser(0).getBody();
+		advertiseList2 = (List<Advertise>) advertiseServiceImpl.viewAdvertisementByUser(0).getBody();
 
 		assertEquals(advertiseList1, advertiseList2);
 	}
@@ -73,7 +71,7 @@ class AdminServicesTest {
 		// setting up mock object's method to return empty list, when called
 		BDDMockito.given(advertiseRepository.viewAdvertisementByUser(0)).willReturn(advertiseList1);
 
-		String errorMessage = (String) adminServiceImpl.viewAdvertisementByUser(0).getBody();
+		String errorMessage = (String) advertiseServiceImpl.viewAdvertisementByUser(0).getBody();
 
 		assertEquals("No advertisement found for inputed user ID", errorMessage);
 	}
@@ -83,7 +81,7 @@ class AdminServicesTest {
 		// setting up mock object's method to throw exception, when called
 		BDDMockito.doThrow(new IllegalArgumentException("")).when(advertiseRepository).deleteById(0);
 
-		String message = adminServiceImpl.deleteAdvertise(0);
+		String message = advertiseServiceImpl.deleteAdvertise(0);
 
 		assertEquals("AdvertisementId not found", message);
 	}
@@ -94,29 +92,13 @@ class AdminServicesTest {
 
 		BDDMockito.doNothing().when(advertiseRepository).deleteById(0);
 
-		String message = adminServiceImpl.deleteAdvertise(0);
+		String message = advertiseServiceImpl.deleteAdvertise(0);
 
 		assertEquals("Advertisement deleted Successfully", message);
 	}
 
-	@Test
-	void test_deleteUser_GivenCorrectUserId_ShouldReturnDeletionErrorMessage() {
-		// setting up mock object method's to throw exception, when called
-		BDDMockito.doThrow(new IllegalArgumentException("")).when(userRepository).deleteById(0);
+	
 
-		String message = adminServiceImpl.deleteUser(0);
-
-		assertEquals("UserId not found", message);
-	}
-
-	@Test
-	void test_deleteUser_GivenCorrectUserId_ShouldReturnDeletionSuccessfulMessage() {
-		// setting up mock object's method to do-nothing, when called
-		BDDMockito.doNothing().when(userRepository).deleteById(0);
-
-		String message = adminServiceImpl.deleteUser(0);
-
-		assertEquals("User Deleted Successfully", message);
-	}
+	
 
 }
