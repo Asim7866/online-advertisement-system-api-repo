@@ -17,6 +17,16 @@ public class Category {
 	private String categoryName;
 	private String category_description;
 	
+	public Category() {
+		
+	}
+	
+	public Category(@NotBlank(message = "Category should not be Null") String categoryName,
+			String category_description) {
+		super();
+		this.categoryName = categoryName;
+		this.category_description = category_description;
+	}
 	public Integer getCategoryId() {
 		return categoryId;
 	}
