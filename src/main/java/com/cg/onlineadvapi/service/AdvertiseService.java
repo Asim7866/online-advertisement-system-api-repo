@@ -1,7 +1,11 @@
 package com.cg.onlineadvapi.service;
 
 import org.springframework.http.ResponseEntity;
-
+/**
+ * This AdvertiseService is responsible for all the business logic on Advertise operations
+ * @author shivamt
+ *
+ */
 public interface AdvertiseService {
 	/**
 	 * This viewAdvertisementByUser method will return list of all Advertisement uploaded by specific user

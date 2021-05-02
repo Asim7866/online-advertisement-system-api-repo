@@ -16,6 +16,7 @@ public class AdvertiseServiceImpl implements AdvertiseService {
 	Logger logger = LoggerFactory.getLogger(AdvertiseServiceImpl.class);
 	@Autowired
 	private AdvertiseRepository advertiseRepository;
+	/////////shivam:
 	@Override
 	public ResponseEntity<Object> viewAdvertisementByUser(int userId) {
 		// Fetching Advertisement uploaded by specific user using UserId

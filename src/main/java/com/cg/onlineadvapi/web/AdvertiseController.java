@@ -18,6 +18,7 @@ public class AdvertiseController {
 	@Autowired
 	private AdvertiseService advertiseService;
 	
+	////////////shivam:
 	@PostMapping("/viewAdvertisementByUser")
 	public ResponseEntity<Object> viewAdvertisementByUser(int userId) throws Exception
 	{	//ResponseEntity<Object> fetchedData=adminService.viewAdvertisementByUser(userId);
