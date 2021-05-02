@@ -1,12 +1,31 @@
 package com.cg.onlineadvapi.service;
-
 import java.util.List;
 
 import com.cg.onlineadvapi.domain.Advertise;
-
+import org.springframework.http.ResponseEntity;
+/**
+ * This AdvertiseService is responsible for all the business logic on Advertise operations
+ * @author shivamt
+ *
+ */
 public interface AdvertiseService {
-
 	/**
+	 * This viewAdvertisementByUser method will return list of all Advertisement uploaded by specific user
+	 * @param userId, whose advertisement list to be fetched
+	 * @return List<Advertise> 
+	 * @author shivam
+	 */
+	public ResponseEntity<Object> viewAdvertisementByUser(int userId);
+	
+	/**
+	 * This deleteAdvertise method will delete the required advertisement from the database.
+	 * @param AdvertisementID, whose data to be deleted
+	 * @return Advertise, which is deleted
+	 * @author shivam
+	 */
+	public String deleteAdvertise(int advertisementId);
+
+  /**
 	 * This method is used to save Or update advertise used by user module
 	 * @param advertise
 	 * @return saved or update advertise details
@@ -66,4 +85,5 @@ public interface AdvertiseService {
 	 * @return specific advertise by id only if it is present in database and status is OPEN
 	 */
 	public Advertise findAdvertiseById(Integer advertiseId);
+
 }

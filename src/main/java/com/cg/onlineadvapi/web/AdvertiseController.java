@@ -1,10 +1,10 @@
 package com.cg.onlineadvapi.web;
 
 import java.util.List;
-
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -17,22 +17,35 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.cg.onlineadvapi.domain.Advertise;
 import com.cg.onlineadvapi.service.AdvertiseService;
 import com.cg.onlineadvapi.serviceImpl.MapValidationErrorService;
-
 import io.swagger.annotations.ApiOperation;
 
-@RestController
-@RequestMapping("/api/advertise")
-public class AdvertiseController {
 
+@RestController
+
+@RequestMapping("/api")
+public class AdvertiseController {
 	@Autowired
 	private AdvertiseService advertiseService;
 	
 	@Autowired
 	private MapValidationErrorService mapValidationErrorService;
+  
+	////////////shivam:
+	@PostMapping("/viewAdvertisementByUser")
+	public ResponseEntity<Object> viewAdvertisementByUser(int userId) throws Exception
+	{	//ResponseEntity<Object> fetchedData=adminService.viewAdvertisementByUser(userId);
+		
+		return advertiseService.viewAdvertisementByUser(userId);
+	}
+	@PostMapping("/deleteAdvertise")
+	public String deleteAdvertise(int advertisementId)
+	{	//returns "AdvertisementId not found" message for invalid AdvertisementId, otherwise returns "Advertisement deleted successfully"
+		return advertiseService.deleteAdvertise(advertisementId);
+	}
+
 	
 	@ApiOperation(value = "Create new Advertise")
 	@PostMapping("")

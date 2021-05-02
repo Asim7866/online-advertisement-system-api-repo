@@ -9,6 +9,9 @@ import org.springframework.stereotype.Repository;
 import com.cg.onlineadvapi.domain.Advertise;
 @Repository
 public interface AdvertiseRepository extends JpaRepository<Advertise, Integer>{
+  @Query("from Advertise where user_id=?1")
+	List<Advertise> viewAdvertisementByUser(int userId);
+
 
 	/**
 	 * In this query we search advertise title with OPEN status
