@@ -1,13 +1,9 @@
 package com.cg.onlineadvapi.service;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.after;
-import static org.mockito.Mockito.verify;
 
 import org.junit.jupiter.api.AfterEach;
 
@@ -62,7 +58,7 @@ public class UserServiceTest {
 	.willReturn(firstUser);
 	secondUser = userServiceImpl.saveOrUpdateUser(user);
 	assertNotNull(secondUser);
-	assertEquals("bipin",secondUser.getname());
+	assertEquals("bipin",secondUser.getName());
 	assertEquals("bipin@gmail.com",secondUser.getEmail());
 	assertEquals("9699086721",secondUser.getContactNo());
 	assertEquals(2,secondUser.getRole());

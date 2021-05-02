@@ -45,25 +45,10 @@ public class Message {
 	 * This Field is used to Identify Sender User Name.
 	 */
 	private String senderUserName;
+	
 	/**
-   * This field is used to identify Advertise
+	 * This field to get Message 
 	 */
-	private Integer advertiseId;
-	/**
-	 * This field is used to identify Sender User
-	 */
-	private Integer senderId;
-	/**
-	 * This field is used to identify Reciever User
-	 */
-	private Integer recieverId;
-	/**
-	 * This field is used to identify Sender User Name
-	 */
-	private String senderUserName;
-	/**
-  * This field to get Message 
-  */
 	@NotBlank(message = "Message should not be Blank")
 	@Size(min=1 , max=160,message = "Message Should be between 1 to 160 character")
 	private String message;
@@ -99,12 +84,9 @@ public class Message {
 		this.message = message;
 	}
 
-
-
 	/**
 	 * Getters and Setters.
    */
-	
 	public Integer getMessageId() {
 		return messageId;
 	}
@@ -121,14 +103,14 @@ public class Message {
 		return senderId;
 	}
 	public void setSenderId(Integer senderId) {
-		this.senderId= senderId;
+		this.senderId = senderId;
 	}
-public Integer getReceiverId() {
+	public Integer getReceiverId() {
 		return receiverId;
 	}
 	public void setReceiverId(Integer receiverId) {
 		this.receiverId = receiverId;
-  }
+	}
 	public String getSenderUserName() {
 		return senderUserName;
 	}
@@ -147,18 +129,16 @@ public Integer getReceiverId() {
 	public void setSend_At(Date send_At) {
 		this.send_At = send_At;
 	}
-	public Date getSeen_At() {
-		return seen_At;
-	}
-
 	
-/**
+	/**
 	 * It Configure a Callback for PreInsert Events of the Field.
 	 */
   @PrePersist
 	protected void sendOn() {
 		this.send_At = new Date();
 	}
+  
+
 
 
 }
