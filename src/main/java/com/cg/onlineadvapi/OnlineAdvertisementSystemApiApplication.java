@@ -2,7 +2,6 @@ package com.cg.onlineadvapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  * This class is starts up the Spring ApplicationContext

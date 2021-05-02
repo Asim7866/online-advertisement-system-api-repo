@@ -29,7 +29,7 @@ public class User {
 	@Pattern(regexp = "^[a-zA-Z ]*$", message="User name should only contain alphabets")
 	private String name;
 	@NotBlank(message="Login name cannot be left blank")
-	@Column(unique=true)
+	@Column(unique=true) //this should be updatable = false
 	private String loginName;
 	@Size(min = 8, max = 33, message = "Password should be greater than 7 and less than 13 characters")
 	private String password;
@@ -41,7 +41,7 @@ public class User {
 	@Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$",message = "Email is Incorrect")
 	private String email;
 	@Column(updatable = false)
-	private Integer role = 2;
+	private Integer role;
 	@Embedded
 	private Address address;
 	@OneToMany(cascade = CascadeType.REMOVE)
@@ -50,6 +50,18 @@ public class User {
 	
 	public User() {
 		super();
+	}
+
+	
+	public User(
+			@NotBlank(message = "name cannot be left empty") @Pattern(regexp = "^[a-zA-Z ]*$", message = "User name should only contain alphabets") String name,
+			@Size(min = 10, max = 10, message = "Contact number should consist 10 digits") @Pattern(regexp = "[0-9]+", message = "Contact number should only contain numeric value") String contactNo,
+			@Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$", message = "Email is Incorrect") String email, Integer role) {
+		super();
+		this.name = name;
+		this.contactNo = contactNo;
+		this.email = email;
+		this.role = role;
 	}
 
 
