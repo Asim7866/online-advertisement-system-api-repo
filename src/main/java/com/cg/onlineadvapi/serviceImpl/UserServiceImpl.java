@@ -1,15 +1,19 @@
 package com.cg.onlineadvapi.serviceImpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.onlineadvapi.domain.User;
+import com.cg.onlineadvapi.exception.AdvertiseIdException;
+  
 import com.cg.onlineadvapi.exception.FieldCannotBeBlankException;
 import com.cg.onlineadvapi.exception.NullUserException;
 import com.cg.onlineadvapi.exception.PasswordMismatchException;
@@ -17,6 +21,8 @@ import com.cg.onlineadvapi.exception.UserAlreadyExistException;
 import com.cg.onlineadvapi.exception.UserNotFoundException;
 import com.cg.onlineadvapi.repository.UserRepository;
 import com.cg.onlineadvapi.service.UserService;
+  
+ 
 
 /**
  *  This class is the implementation of UserService interface 
@@ -150,8 +156,24 @@ public class UserServiceImpl implements UserService {
 			
 		}
 
+  @Override
+	public User saveOrUpdateUser(User user) {
+		if(user == null) {
+			throw new NullPointerException("User Object cannot be null");
+		}
+		user.setRole(2);
+		return userRepository.save(user);
+	}
+
+	@Override
+	public void deleteById(Integer user_id) {
+		 Optional<User> user = userRepository.findById(user_id);
+		 if(user.isPresent()) {
+			 userRepository.deleteById(user_id);
+		 }else {
+			 throw new AdvertiseIdException(user_id+" not found");
+		 }
 
 }
-
-
+}
 

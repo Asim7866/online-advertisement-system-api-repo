@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.cg.onlineadvapi.domain.User;
 
-
 /**
  * This repository is responsible  for operations on the database .
  * @author abhishek 
