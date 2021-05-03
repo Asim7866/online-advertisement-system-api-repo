@@ -27,7 +27,6 @@ public class Message {
 
 	/**
   * This Field is used to Identify Message : Auto Generated.
-  * This field is used to identify Message : Auto Generated
   */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,7 +40,7 @@ public class Message {
 	 */
 	private Integer receiverId;
 	/**
-	 * sender ID
+	 * This Field is used to Identify Sender ID.
 	 */
 	private Integer senderId;
 	/**
@@ -143,6 +142,9 @@ public class Message {
 		this.send_At = new Date();
 	}
   
+  /**
+   * To string method used for logger.
+   */
 	@Override
 	public String toString() {
 		return "Message with values : {messageId=" + messageId + ", advertiseId=" + adv_id + ""
