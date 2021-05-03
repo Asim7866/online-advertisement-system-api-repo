@@ -1,13 +1,11 @@
 package com.cg.onlineadvapi.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.AfterEach;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.BDDMockito;
@@ -20,6 +18,7 @@ import org.springframework.mock.web.MockHttpSession;
 import com.cg.onlineadvapi.domain.User;
 import com.cg.onlineadvapi.exception.AdvertiseIdException;
 import com.cg.onlineadvapi.exception.FieldCannotBeBlankException;
+import com.cg.onlineadvapi.exception.InvalidRoleException;
 import com.cg.onlineadvapi.exception.NullUserException;
 import com.cg.onlineadvapi.exception.PasswordMismatchException;
 import com.cg.onlineadvapi.exception.UserAlreadyExistException;
@@ -45,6 +44,12 @@ import com.cg.onlineadvapi.serviceImpl.UserServiceImpl;
  * @author bmanikch
  *
  */
+
+/**
+ * 
+ * @author rupesh singh
+ *
+ */
 public class UserServiceTest {
 	
 	@Mock
@@ -68,6 +73,10 @@ public class UserServiceTest {
 	private User user6;
 	private User user7;
 	private User user8;
+	private User user9;
+	private User user10;
+	private User user11;
+	
 
 	@BeforeEach
 	public void setUp() {
@@ -81,6 +90,11 @@ public class UserServiceTest {
 	 user6 = new User(null,"sarvesh12345678");
 	 user7=new User("admintemp","adminpass");
 	 user8=new User();
+	//rupesh
+	user9 = new User("Rupesh", "RupeshSingh", "Rupesh1234", "Rupesh1234", "8452922052", "sunny@gmail.com", 1);
+	user10 = new User("Asim", "AsimAnsari", "Asim1234", "Asim1234", "1234567890", "asim@gmail.com", 2);
+	user11 = new User("Himanshu", "HimanshuV", "Himanshu1234", "Himanshu1234", "0987654321", "himanshu@gmail.com", 1);
+	 
 	
 //	secondUser = new User("dev","9699086723","dev@gmail.com",2);
 	}
@@ -92,36 +106,47 @@ public class UserServiceTest {
 	}
 	
 	//*******************Test Cases For User Registration**********************//
+	
+	/**
+	 * This test case is used to check if the user is getting saved in database or not.
+	 */
 		@Test
-		public void test_saveUser_GivenTheUser_ShouldReturnSavedUser() {
-			User user1 = new User("Rupesh", "RupeshSingh", "Rupesh1234", "Rupesh1234", "8452922052", "sunny@gmail.com", 1);
-			
-			BDDMockito.given(userRepository.save(user1)).willReturn(user1);
-			
-			User userReturnedFromServiceImpl = userServiceImpl.saveUser(user1);
-			
+		public void test_saveUser_GivenTheUser_ShouldReturnSavedUser() {			
+			BDDMockito.given(userRepository.save(user9)).willReturn(user9);
+			User userReturnedFromServiceImpl = userServiceImpl.saveUser(user9);
 			assertNotNull(userReturnedFromServiceImpl);
-			assertEquals(user1,userReturnedFromServiceImpl);		
+			assertEquals(user9,userReturnedFromServiceImpl);		
 		}
 		
+
+		/**
+		 * This test case will check if the user already exist it will throw UserAlreadyExistException
+		 * @throws Exception
+		 */
 		@Test
 		public void test_saveUser_ShouldThrowUserAlreadyExistException() throws Exception{
-			User user = new User("Rupesh", "RupeshSingh", "Rupesh1234", "Rupesh1234", "8452922052", "sunny@gmail.com", 1);
-			BDDMockito.given(userRepository.save(user)).willThrow(new UserAlreadyExistException());
-			assertThrows(UserAlreadyExistException.class, ()->userServiceImpl.saveUser(user));
+			BDDMockito.given(userRepository.save(user9)).willThrow(new UserAlreadyExistException());
+			assertThrows(UserAlreadyExistException.class, ()->userServiceImpl.saveUser(user9));	
 		}
 		
+		/**
+		 * This test case will check if the Password and ConfirmPassword is not matching then it will throw PasswordMisMatchException
+		 * @throws Exception
+		 */
 		@Test
 		public void test_saveUser_ShouldThrowPasswordMisMatchException() throws Exception{
-			BDDMockito.given(userRepository.save(user)).willThrow(new PasswordMismatchException());
-			Exception ex = assertThrows(PasswordMismatchException.class, ()->userServiceImpl.saveUser(new User("Rupesh", "RupeshSingh", "Rupesh12346", "Rupesh1234", "8452922052", "sunny@gmail.com", 1)));
-			assertEquals("(E)Password and Confirm Password should be matching", ex.getMessage());
+			BDDMockito.given(userRepository.save(user9)).willThrow(new PasswordMismatchException());
+			assertThrows(PasswordMismatchException.class, ()->userServiceImpl.saveUser(user9));
 		}
 		
+		/**
+		 * This test case will check if the value of Role is other than 1 and 2 it will throw NumberFormatException
+		 * @throws Exception
+		 */
 		@Test
-		public void test_saveUser_ShouldThrowNumberFormatException() throws Exception{
-			BDDMockito.given(userRepository.save(user)).willThrow(new NumberFormatException());
-			assertThrows(NumberFormatException.class, ()->userServiceImpl.saveUser(new User("Rupesh", "RupeshSingh", "Rupesh1234", "Rupesh1234", "8452922052", "sunny@gmail.com", 3)));
+		public void test_saveUser_ShouldThrowInvalidRoleException() throws Exception{
+			BDDMockito.given(userRepository.save(user)).willThrow(new InvalidRoleException());
+			assertThrows(InvalidRoleException.class, ()->userServiceImpl.saveUser(new User("Rupesh", "RupeshSingh", "Rupesh1234", "Rupesh1234", "8452922052", "sunny@gmail.com", 3)));
 		}
 		
 		//*************************Test Cases for User Login Validation ***********************************//
@@ -215,7 +240,7 @@ public class UserServiceTest {
 			BDDMockito.given(userRepository.findByLoginNameAndPassword(user3.getLoginName(), user3.getPassword()))
 			.willThrow(UserNotFoundException.class);
 			Exception ex = assertThrows(UserNotFoundException.class, () ->userServiceImpl.authenticateUser(user3.getLoginName(),user6.getPassword(), session));
-			assertEquals("Password should be less than 12 character ", ex.getMessage());
+			assertEquals("Password should be less than 13 character ", ex.getMessage());
 			
 		}
 		

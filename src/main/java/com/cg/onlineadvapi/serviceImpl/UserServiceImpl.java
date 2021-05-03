@@ -1,19 +1,17 @@
 package com.cg.onlineadvapi.serviceImpl;
 
 import java.util.List;
+import java.util.Optional;
+import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.cg.onlineadvapi.constant.UserRole;
 import com.cg.onlineadvapi.domain.User;
-import com.cg.onlineadvapi.repository.UserRepository;
-import com.cg.onlineadvapi.service.UserService;
-import java.util.Optional;
-import javax.servlet.http.HttpSession;
 import com.cg.onlineadvapi.exception.AdvertiseIdException;
 import com.cg.onlineadvapi.exception.FieldCannotBeBlankException;
+import com.cg.onlineadvapi.exception.InvalidRoleException;
 import com.cg.onlineadvapi.exception.NoUserException;
 import com.cg.onlineadvapi.exception.NullUserException;
 import com.cg.onlineadvapi.exception.PasswordMismatchException;
@@ -105,7 +103,7 @@ public class UserServiceImpl implements UserService {
 		 * Logic to check if user is specifying correct role or not
 		 */
 		if(userToBeSave.getRole()!= 1 && userToBeSave.getRole()!= 2) {
-			throw new NumberFormatException("(E)Cannot enter value other than 1 and 2");
+			throw new InvalidRoleException("(E)Cannot enter value other than 1 and 2");
 		}
 		
 		/**
@@ -147,7 +145,6 @@ public class UserServiceImpl implements UserService {
 				throw new FieldCannotBeBlankException("Please Enter LoginName and Password to login");
 				
 			}
-			//if((user = userRepository.findByLoginNameAndPassword(loginName,(encryptPwdImpl.getMd5(password))))==null) {
 			if((user = userRepository.findByLoginNameAndPassword(loginName,password))==null) {
 				logger.error("Login Failed ");
 				throw new UserNotFoundException("Login Failed || Invalid Credentials");
@@ -173,7 +170,7 @@ public class UserServiceImpl implements UserService {
 		logger.error("Please provide Password to Login ");
 		throw new FieldCannotBeBlankException("Password should not be Blank");
 	}
-	if(password.length()>13) {
+	if(password.length()>12) {
 		logger.error("Provided Password length is more then 13 characters");
 		throw new UserNotFoundException("Password should be less than 13 characters ");
 	}
