@@ -99,7 +99,6 @@ public class UserServiceImpl implements UserService {
 			throw new PasswordMismatchException("(E)Password and Confirm Password should be matching");
 		}
 		
-		
 		/**
 		 * Logic to check if user is specifying correct role or not
 		 */

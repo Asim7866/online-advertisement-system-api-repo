@@ -9,18 +9,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.validator.constraints.NotBlank;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import jdk.jfr.Timestamp;
 
 /**
  * This Class is a Model Class for Message Entity Table
@@ -40,15 +35,11 @@ public class Message {
 	/**
    * This Field is used to Identify Advertise.
 	 */
-	private Integer advertiseId;
+	private Integer adv_id;
 	/**
 	 * This Field is used to Identify Receiver User.
 	 */
 	private Integer receiverId;
-	/**
-	 * This Field is used to Identify Sender User Name.
-	 */
-	private String senderUserName;
 	/**
 	 * sender ID
 	 */
@@ -88,13 +79,12 @@ public class Message {
 	 * @param senderUserName
 	 * @param message
 	 */
-	public Message(Integer advertiseId,Integer senderId, Integer receiverId, String senderUserName,
+	public Message(Integer adv_id,Integer senderId, Integer receiverId,
 			@Size(min = 1, max = 160, message = "Message Should be between 1 to 160 character") String message) {
 		super();
-		this.advertiseId = advertiseId;
+		this.adv_id = adv_id;
 		this.senderId=senderId;
 		this.receiverId = receiverId;
-		this.senderUserName = senderUserName;
 		this.message = message;
 	}
 
@@ -107,24 +97,14 @@ public class Message {
 	public void setMessageId(Integer messageId) {
 		this.messageId = messageId;
 	}
-	public Integer getAdvertiseId() {
-		return advertiseId;
+	public void setAdv_id(Integer adv_id) {
+		this.adv_id = adv_id;
 	}
-	public void setAdvertiseId(Integer advertiseId) {
-		this.advertiseId = advertiseId;
-	}
-	
 	public Integer getReceiverId() {
 		return receiverId;
 	}
 	public void setReceiverId(Integer receiverId) {
 		this.receiverId = receiverId;
-	}
-	public String getSenderUserName() {
-		return senderUserName;
-	}
-	public void setSenderUserName(String senderUserName) {
-		this.senderUserName =senderUserName;
 	}
 	public String getMessage() {
 		return message;
@@ -152,6 +132,9 @@ public class Message {
 	public void setSenderId(Integer senderId) {
 		this.senderId = senderId;
 	}
+	public Integer getAdv_id() {
+		return adv_id;
+	}
 	/**
 	 * It Configure a Callback for PreInsert Events of the Field.
 	 */
@@ -159,11 +142,11 @@ public class Message {
 	protected void sendOn() {
 		this.send_At = new Date();
 	}
+  
 	@Override
 	public String toString() {
-		return "Message with values : {messageId=" + messageId + ", advertiseId=" + advertiseId + ""
+		return "Message with values : {messageId=" + messageId + ", advertiseId=" + adv_id + ""
 				+ ", receiverId=" + receiverId
-				+ ", senderUserName=" + senderUserName
 				+ ", senderId=" + senderId + ", "
 				+ "message=" + message
 				+ ", send_At=" + send_At + ",}";

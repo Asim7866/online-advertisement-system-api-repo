@@ -49,13 +49,10 @@ public class User {
 	@JsonIgnore
 	private Address address;
 	
-//	@JsonIgnore
-//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "userId")
-//	private List<Advertise> advertise=new ArrayList<>();
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="user_id" ,referencedColumnName = "userId")
+	private List<Advertise> advertise=new ArrayList<>();
 
-	@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER,mappedBy = "user")
-	private List<Message> message = new ArrayList<>();
 	
 	public User() {
 		super();
@@ -167,22 +164,6 @@ public class User {
 		this.address = address;
 	}
 
-
-	public List<Message> getMessage() {
-		return message;
-	}
-
-	public void setMessage(List<Message> message) {
-		this.message = message;
-	}
-//	
-//	public List<Advertise> getAdvertise() {
-//		return advertise;
-//	}
-//
-//	public void setAdvertise(List<Advertise> advertise) {
-//		this.advertise = advertise;
-//	}
 
 	@Override
 	public String toString() {
