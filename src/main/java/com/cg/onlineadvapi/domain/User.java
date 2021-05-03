@@ -7,6 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -45,28 +46,21 @@ public class User {
 	@Column(updatable = false)
 	private Integer role;
 	@Embedded
-	private Address address;
 	@JsonIgnore
-	@OneToMany(cascade = CascadeType.REMOVE)
-	@JoinColumn(name="user_id" ,referencedColumnName = "userId")
-	private List<Advertise> advertise=new ArrayList<>();
+	private Address address;
+	
+//	@JsonIgnore
+//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "userId")
+//	private List<Advertise> advertise=new ArrayList<>();
 
+	@JsonIgnore
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER,mappedBy = "user")
+	private List<Message> message = new ArrayList<>();
+	
 	public User() {
 		super();
 	}
 	
-	
-	
-
-	public User( String loginName, String password) {
-		super();
-		this.loginName = loginName;
-		this.password = password;
-	}
-
-
-
-
 	public User(String name, String loginName, String password, String confirmPassword, String contactNo, String email, Integer role) {
 		super();
 		this.name = name;
@@ -168,6 +162,21 @@ public class User {
 	}
 
 
+	public List<Message> getMessage() {
+		return message;
+	}
+
+	public void setMessage(List<Message> message) {
+		this.message = message;
+	}
+//	
+//	public List<Advertise> getAdvertise() {
+//		return advertise;
+//	}
+//
+//	public void setAdvertise(List<Advertise> advertise) {
+//		this.advertise = advertise;
+//	}
 
 	@Override
 	public String toString() {

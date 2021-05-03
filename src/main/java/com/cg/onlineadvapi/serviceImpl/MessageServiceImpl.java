@@ -88,23 +88,24 @@ public class MessageServiceImpl implements MessageService{
 		logger.info("Getting User");
 		List<Message> userMessages = messageByUserId(senderId);
 		logger.info("Getting User Messages");
-		Message foundMessage =new Message();
-		for (Message message : userMessages) {
-		foundMessage= messageRepository.findByMessageId(message.getMessageId());
+		for (Message message2 : userMessages) {
+			logger.info("Checking Messages of User");
+			if(message2==null) {
+				logger.info("No Message Found for User");
+				logger.error("Message Id "+messageId+" doesnt Exist for "+senderId);
+				throw new NoMessageException("Can not delete Message.No Message for User");
+			}
+		}
+		Message userMessage = messageRepository.findByMessageId(messageId);
+		logger.info("Getting User Messages");
 		logger.info("Checking Messages of User");
-		if(foundMessage==null) {
-			logger.info("No Message Found");
-			logger.error("Message Id "+messageId+" doesnt Exist");
-			throw new NoMessageException("Can not delete Message.This message doesn't exist");
-		}
-		if(!message.getMessage().equals(messageId)){
-			logger.info("No Message Found");
-			logger.error("Message Id "+messageId+" doesnt Exist");
-			throw new NoMessageException("Can not delete Message.This message doesn't exist");
-		}
-		}
+			if(userMessage==null) {
+				logger.info("No Message Found");
+				logger.error("Message Id "+messageId+" doesnt Exist");
+				throw new NoMessageException("Can not delete Message.This message doesn't exist");
+			}
 		logger.info("Message with MessageId "+messageId+" deleted");
-		messageRepository.delete(foundMessage);
+		messageRepository.deleteById(messageId);
 		logger.info("Deleting Message of User Service Closing");
 		logger.info("Deleting Message of User Service Closed");
 	}
@@ -153,4 +154,5 @@ public class MessageServiceImpl implements MessageService{
 		return messageList;
 	}
 	
+
 }
