@@ -85,6 +85,12 @@ public class User {
 		this.role = role;
 	}
 
+	public User(@NotBlank(message = "Login name cannot be left blank") String loginName,
+			@Size(min = 8, max = 12, message = "Password should be greater than 7 and less than 13 characters") String password) {
+		super();
+		this.loginName = loginName;
+		this.password = password;
+	}
 
 	public Integer getUserId() {
 		return userId;

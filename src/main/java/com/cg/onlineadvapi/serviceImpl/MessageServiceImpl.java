@@ -1,4 +1,5 @@
 package com.cg.onlineadvapi.serviceImpl;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 import org.slf4j.Logger;
@@ -47,6 +48,7 @@ public class MessageServiceImpl implements MessageService{
 			logger.error("Sender "+message.getSenderUserName()+" is trying to send message to himself");	
 			throw new SameSenderException("User cannot send message to himself");
 			}
+			logger.info(message.toString()+" Entered");
 			logger.info("Message has been send by "+message.getSenderUserName());
 			logger.info("Sending Message Service Closing" );
 			logger.info("Sending Message Service Closed" );
@@ -68,7 +70,10 @@ public class MessageServiceImpl implements MessageService{
 		if(message.isEmpty()) {
 			logger.info("No Message is Found Of User");
 			logger.error("No Messages doesn't Exist for user with userid "+ senderId);
-			throw new NoMessageException("User with userId "+senderId+" not Valid");
+			throw new NoMessageException("User with userId "+senderId+" doesnt Exist");
+		}
+		for (Message message2 : message) {
+			logger.info(message2.toString()+ "Found");
 		}
 		logger.info("Message has been Viewed by "+message.get(0).getSenderUserName());
 		logger.info("Getting Message By User Service Closing");
@@ -104,6 +109,7 @@ public class MessageServiceImpl implements MessageService{
 				logger.error("Message Id "+messageId+" doesnt Exist");
 				throw new NoMessageException("Can not delete Message.This message doesn't exist");
 			}
+		logger.info(userMessage.toString()+" was deleted ");
 		logger.info("Message with MessageId "+messageId+" deleted");
 		messageRepository.deleteById(messageId);
 		logger.info("Deleting Message of User Service Closing");
@@ -126,6 +132,9 @@ public class MessageServiceImpl implements MessageService{
 			logger.error("No Message Available");
 			throw new NoMessageException("No Messages Found");
 		}
+		for (Message message : allMessageList) {
+			logger.info(message.toString()+ " Found");
+		}
 		logger.info("All Messages Available");
 		logger.info("Show All Messages Service Closing");
 		logger.info("Show All Messages Service Closed");
@@ -147,6 +156,9 @@ public class MessageServiceImpl implements MessageService{
 			logger.info("No Messages Found");
 			logger.error("No Message Available for Advertise with ID "+advertiseId);
 			throw new NoMessageException("No Messages Found");
+		}
+		for (Message message : messageList) {
+			logger.info(message.toString() +" Found");
 		}
 		logger.info("All Messages Available for Advertise with ID "+advertiseId);
 		logger.info("View All Messages Of Advertise Service Closing");

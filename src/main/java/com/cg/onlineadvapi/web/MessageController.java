@@ -64,7 +64,9 @@ public class MessageController {
 	 */
 	@GetMapping("/sender/{senderId}")
 	public ResponseEntity<?> getmessageBySenderIdentifier(@PathVariable Integer senderId){
+		
 		List<Message> message = messageService.messageByUserId(senderId);
+		
 		return new ResponseEntity<List<Message>>(message, HttpStatus.OK);
 	}
 	
