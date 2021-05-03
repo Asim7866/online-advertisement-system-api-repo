@@ -117,14 +117,15 @@ public class UserController {
 
 	
 	
-	@PostMapping("/login")
+		@PostMapping("/login")
 	public ResponseEntity<?> loginUser(@RequestBody LoginCommand user, BindingResult result, HttpSession session) {
+		if (session.getAttribute("user")==null) {
 		ResponseEntity<?> errorMap = mapValidationErrorService.mapValidationError(result);
 		if (errorMap != null) {
 			return errorMap;
 		}
 		User loggedInUser = userService.authenticateUser(user.getLoginName(), user.getPassword(), session);
-		if (loggedInUser.getRole().equals(1)) {
+		if (loggedInUser.getRole().equals(UserRole.USER_ROLE_ADMIN)) {
 			return new ResponseEntity<String>("Admin " + loggedInUser.getName() + " has Succesfully LoggedIn",
 					HttpStatus.OK);
 		}
@@ -132,6 +133,8 @@ public class UserController {
 				HttpStatus.OK);
 	}
 
+		return new ResponseEntity<String>("You have already logged In ", HttpStatus.BAD_REQUEST);
+	}
 	
 	
 	@PostMapping("/logout")
@@ -140,9 +143,10 @@ public class UserController {
 		return new ResponseEntity<String>("Logged Out Successfully!!", HttpStatus.OK);
 	}
 	
-	@ApiOperation(value = "User Updated")
+	@ApiOperation(value = "User Update")
 	@PatchMapping("")
-	public ResponseEntity<?> updateUser(@Valid @RequestBody User user, BindingResult result) {
+	public ResponseEntity<?> updateUser(@Valid @RequestBody User user, BindingResult result , HttpSession session) {
+		if (session.getAttribute("user")!=null) {
 		ResponseEntity<?> errorMessage = mapValidationErrorService.mapValidationError(result);
 		if (errorMessage != null)
 			return errorMessage;
@@ -150,16 +154,22 @@ public class UserController {
 		userService.saveOrUpdateUser(user);
 		return new ResponseEntity<String>("User Updated Successfully.", HttpStatus.CREATED);
 	}
-
+		return new ResponseEntity<String>("You have not Logged In || Please  Login First ", HttpStatus.BAD_REQUEST);
+	}	
 	
+
 	
 	@ApiOperation(value = "Delete user by Id")
 	@DeleteMapping("/delete User by Id/{user_id}")
-	public ResponseEntity<?> deleteUserById(@PathVariable Integer user_id) {
+	public ResponseEntity<?> deleteUserById(@PathVariable Integer user_id , HttpSession session) {
+		if (session.getAttribute("user")!=null) {
 		userService.deleteById(user_id);
 		return new ResponseEntity<String>("Id " + user_id + " user Deleted.", HttpStatus.OK);
 	}
-
+		return new ResponseEntity<String>("You have not Logged In || Please  Login First ", HttpStatus.BAD_REQUEST);
+	}	
+	
+	
 	
 	
 }
