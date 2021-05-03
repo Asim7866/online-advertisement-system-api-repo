@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.cg.onlineadvapi.command.LoginCommand;
+import com.cg.onlineadvapi.constant.UserRole;
 import com.cg.onlineadvapi.serviceImpl.MapValidationErrorService;
 import io.swagger.annotations.ApiOperation;
 
