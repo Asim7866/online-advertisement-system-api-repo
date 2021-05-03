@@ -101,7 +101,6 @@ public class UserServiceImpl implements UserService {
 			throw new PasswordMismatchException("(E)Password and Confirm Password should be matching");
 		}
 		
-		
 		/**
 		 * Logic to check if user is specifying correct role or not
 		 */
@@ -164,7 +163,7 @@ public class UserServiceImpl implements UserService {
 		throw new FieldCannotBeBlankException("Password should not be Blank");
 	}
 	if(password.length()>12) {
-		throw new UserNotFoundException("Password should be less than 12 character ");
+		throw new UserNotFoundException("Password should be less than 13 character ");
 	}
 	if(password.length()<7) {
 		throw new UserNotFoundException("Password must be atleast 8 character");

@@ -36,9 +36,9 @@ class MessageServiceTest {
     public void setUp() {
     	MockitoAnnotations.initMocks(this); //invoke mock
     	messageList = new ArrayList<>();
-    	firstMessage = new Message(1,1,2,"Asim","Hi");
-    	secondMessage = new Message(1,1,2,"Asim","Hi");
-    	thirdMessage = new Message(1,1,1,"Asim","Hi");
+    	firstMessage = new Message(1,1,2,"Hi");
+    	secondMessage = new Message(1,1,2,"Hello");
+    	thirdMessage = new Message(1,1,1,"Hey");
     	messageList.add(firstMessage);
         messageList.add(secondMessage);
     	message = new Message();
@@ -55,14 +55,13 @@ class MessageServiceTest {
      */
     @Test
     public void test_sendMessage_GivenMessage_ShouldReturnSavedMessages(){
-    	BDDMockito.given(messageRepository.save(message))
+    	BDDMockito.given(messageRepository.save(firstMessage))
     	.willReturn(firstMessage);
-    	secondMessage = messageServiceImpl.sendMessage(message);
+    	secondMessage = messageServiceImpl.sendMessage(firstMessage);
     	assertNotNull(secondMessage);
-    	assertEquals(1,secondMessage.getAdvertiseId());
+    	assertEquals(1,secondMessage.getAdv_id());
     	assertEquals(1,secondMessage.getSenderId());
     	assertEquals(2,secondMessage.getReceiverId());
-    	assertEquals("Asim",secondMessage.getSenderUserName());
     	assertEquals("Hi",secondMessage.getMessage());
     }
     
@@ -111,7 +110,6 @@ class MessageServiceTest {
     	verify(messageRepository).deleteById(message.getMessageId());
     	assertNull(message.getMessageId());
     	assertNull(message.getSenderId());
-    	assertNull(message.getSenderUserName());
     	assertNull(message.getReceiverId());
     	assertNull(message.getMessage());
     }
@@ -157,9 +155,9 @@ class MessageServiceTest {
      */
     @Test
     public void test_allMessageSentOnAdvertise_GivenAdvertiseId_ShouldReturnListOfAllAdvertiseMessages() {
-    	BDDMockito.given(messageRepository.findByAdvertiseId(message.getAdvertiseId())).
+    	BDDMockito.given(messageRepository.findByAdvertiseId(message.getAdv_id())).
     	willReturn(messageList);
-    	List<Message> getMessageList = messageServiceImpl.allMessageSentOnAdvertise(message.getAdvertiseId());
+    	List<Message> getMessageList = messageServiceImpl.allMessageSentOnAdvertise(message.getAdv_id());
     	assertNotNull(messageList);
     	assertNotNull(getMessageList);
     	assertEquals(2,getMessageList.size());
@@ -173,7 +171,7 @@ class MessageServiceTest {
      */
     @Test
     public void test_allMessageSentOnAdvertise() throws Exception{
-    	BDDMockito.given(messageRepository.findByAdvertiseId(message.getAdvertiseId()))
+    	BDDMockito.given(messageRepository.findByAdvertiseId(message.getAdv_id()))
     	.willThrow(new NoMessageException());
     	assertThrows(NoMessageException.class,()->messageServiceImpl.allMessageSentOnAdvertise(4));
     }

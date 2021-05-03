@@ -118,6 +118,7 @@ public class UserServiceTest {
 			assertEquals(user9,userReturnedFromServiceImpl);		
 		}
 		
+
 		/**
 		 * This test case will check if the user already exist it will throw UserAlreadyExistException
 		 * @throws Exception
@@ -239,7 +240,7 @@ public class UserServiceTest {
 			BDDMockito.given(userRepository.findByLoginNameAndPassword(user3.getLoginName(), user3.getPassword()))
 			.willThrow(UserNotFoundException.class);
 			Exception ex = assertThrows(UserNotFoundException.class, () ->userServiceImpl.authenticateUser(user3.getLoginName(),user6.getPassword(), session));
-			assertEquals("Password should be less than 12 character ", ex.getMessage());
+			assertEquals("Password should be less than 13 character ", ex.getMessage());
 			
 		}
 		

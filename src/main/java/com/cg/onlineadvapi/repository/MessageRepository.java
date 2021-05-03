@@ -1,13 +1,14 @@
 package com.cg.onlineadvapi.repository;
-
 import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import com.cg.onlineadvapi.domain.Message;
 /**
- * This Interface is used to extends JPA repository which enable us to us CRUD operation directly.
+ * This Interface is responsible  for all CRUD operations on the database .
  * @author mohdansa
+ *
  */
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Integer>{
@@ -17,6 +18,7 @@ public interface MessageRepository extends JpaRepository<Message, Integer>{
 	 * @param senderId
 	 * @return Message
 	 */
+	
 	List<Message> findBySenderId(Integer senderId);
 	
 	/**
@@ -24,6 +26,7 @@ public interface MessageRepository extends JpaRepository<Message, Integer>{
 	 * @param advertiseId
 	 * @return List of Message
 	 */
+	@Query("select a from Message a where a.adv_id=:advertiseId")
 	List<Message> findByAdvertiseId(Integer advertiseId);
 
 	/**
