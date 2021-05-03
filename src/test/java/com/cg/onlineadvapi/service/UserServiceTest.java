@@ -22,6 +22,7 @@ import com.cg.onlineadvapi.exception.AdvertiseIdException;
 import com.cg.onlineadvapi.exception.FieldCannotBeBlankException;
 import com.cg.onlineadvapi.exception.NullUserException;
 import com.cg.onlineadvapi.exception.PasswordMismatchException;
+import com.cg.onlineadvapi.exception.UserAlreadyExistException;
 import com.cg.onlineadvapi.exception.UserNotFoundException;
 import com.cg.onlineadvapi.repository.UserRepository;
 import com.cg.onlineadvapi.serviceImpl.UserServiceImpl;
@@ -102,14 +103,13 @@ public class UserServiceTest {
 			assertNotNull(userReturnedFromServiceImpl);
 			assertEquals(user1,userReturnedFromServiceImpl);		
 		}
-		/*
+		
 		@Test
 		public void test_saveUser_ShouldThrowUserAlreadyExistException() throws Exception{
 			User user = new User("Rupesh", "RupeshSingh", "Rupesh1234", "Rupesh1234", "8452922052", "sunny@gmail.com", 1);
 			BDDMockito.given(userRepository.save(user)).willThrow(new UserAlreadyExistException());
-			assertThrows(UserAlreadyExistException.class, ()->userServiceImpl.saveUser(new User("Rupesh", "RupeshSingh", "Rupesh1234", "Rupesh1234", "8452922052", "sunny@gmail.com", 1)));
-			
-		}*/
+			assertThrows(UserAlreadyExistException.class, ()->userServiceImpl.saveUser(user));
+		}
 		
 		@Test
 		public void test_saveUser_ShouldThrowPasswordMisMatchException() throws Exception{

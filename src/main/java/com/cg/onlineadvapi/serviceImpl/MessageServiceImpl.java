@@ -40,19 +40,22 @@ public class MessageServiceImpl implements MessageService{
 	public Message sendMessage(Message message) {
 		logger.info("Sending Message Service Starting");
 		logger.info("Sending Message Service Started");
-		Message savedMessage = messageRepository.save(message);
 		logger.info("Checking Sender and Reciever");
-		if(savedMessage.getSenderId().equals(savedMessage.getReceiverId())) 
+		if(message.getSenderId().equals(message.getReceiverId())) 
 		{
 			logger.info("Sender and Reciever Id is Same");
-			logger.error("Sender "+message.getSenderUserName()+" is trying to send message to himself");	
+			logger.error("Sender with Id "+message.getSenderId()+"is trying to send message to himself");	
 			throw new SameSenderException("User cannot send message to himself");
-			}
+		}
+		else 
+		{
+			Message foundMessage =messageRepository.save(message);
 			logger.info(message.toString()+" Entered");
-			logger.info("Message has been send by "+message.getSenderUserName());
+			logger.info("Message has been send by User with userId"+message.getSenderId());
 			logger.info("Sending Message Service Closing" );
 			logger.info("Sending Message Service Closed" );
-			return savedMessage;
+			return foundMessage;
+		}
 	}
 
 	/**
@@ -75,7 +78,7 @@ public class MessageServiceImpl implements MessageService{
 		for (Message message2 : message) {
 			logger.info(message2.toString()+ "Found");
 		}
-		logger.info("Message has been Viewed by "+message.get(0).getSenderUserName());
+		logger.info("Message has been Viewed by "+message.get(0).getSenderId());
 		logger.info("Getting Message By User Service Closing");
 		logger.info("Getting Message By User Service Closed");
 		return message;
