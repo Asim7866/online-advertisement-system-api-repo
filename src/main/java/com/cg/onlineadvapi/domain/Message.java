@@ -3,6 +3,8 @@ package com.cg.onlineadvapi.domain;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotBlank;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -38,10 +41,13 @@ public class Message {
 	/**
 	 * This Field is used to Identify Receiver User.
 	 */
+	@NotNull(message = "Reciever Id must be Given.")
 	private Integer receiverId;
+	
 	/**
 	 * This Field is used to Identify Sender ID.
 	 */
+	@NotNull(message = "SenderId Id must be Given.")
 	private Integer senderId;
 	/**
 	 * This field to get Message 
@@ -52,19 +58,14 @@ public class Message {
 	/**
   * This Field is used to get Send Date.
   */
+	
 	@JsonFormat(pattern="HH:mm dd-MM-yyyy")
 	private Date send_At;
 	/**
 	 * This Field is used to Identify Sender User.
 	 */
-	@JsonIgnore
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id" ,referencedColumnName = "userid")
-	private User user;
-	
   
 /**
-  * Constructor without Parameter.
   * Constructor without parameter
   */
 	public Message() {
@@ -86,6 +87,8 @@ public class Message {
 		this.receiverId = receiverId;
 		this.message = message;
 	}
+	
+	
 
 	/**
 	 * Getters and Setters.
@@ -99,6 +102,7 @@ public class Message {
 	public void setAdv_id(Integer adv_id) {
 		this.adv_id = adv_id;
 	}
+	
 	public Integer getReceiverId() {
 		return receiverId;
 	}
@@ -118,12 +122,6 @@ public class Message {
 		this.send_At = send_At;
 	}
 	
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
 	
 	public Integer getSenderId() {
 		return senderId;
@@ -134,6 +132,8 @@ public class Message {
 	public Integer getAdv_id() {
 		return adv_id;
 	}
+	
+	
 	/**
 	 * It Configure a Callback for PreInsert Events of the Field.
 	 */
