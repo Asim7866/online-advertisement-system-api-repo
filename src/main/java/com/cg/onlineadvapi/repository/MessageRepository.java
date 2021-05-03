@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import com.cg.onlineadvapi.domain.Message;
 /**
- * ___________As___________
+ * This Interface is responsible  for all CRUD operations on the database .
  * @author mohdansa
  *
  */
