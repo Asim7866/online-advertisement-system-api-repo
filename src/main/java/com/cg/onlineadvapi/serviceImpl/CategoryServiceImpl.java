@@ -35,28 +35,6 @@ public class CategoryServiceImpl implements CategoryService {
 		return categoryRepository.save(category);
 		
 }		
-//		logger.info("For adding or updating CATEGORY");
-//		List<Category> categoryList = categoryRepository.findAll();
-//		for (Category cat : categoryList) {
-////			if(!(cat.getCategoryName().equals(category.getCategoryName()))){
-////				throw new CategoryException(category.getCategoryName() + " already exist");
-////			}
-//			if((category = (Category) categoryRepository.findAll())==null) {
-//				return categoryRepository.save(category);
-//			}
-//			
-//		}
-//		throw new CategoryException("Category already exits");
-//		
-	}
-
-//	@Override
-//	public boolean duplicateCategoryCheck(Category category)
-//	{	
-//		if(categoryRepository.findByCategoryName(category.getCategoryName()).isEmpty())
-//			return false;
-//		else
-//			return true;
-//	}
+}
 
 

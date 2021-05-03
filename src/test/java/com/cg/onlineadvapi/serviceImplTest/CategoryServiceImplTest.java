@@ -10,6 +10,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import com.cg.onlineadvapi.domain.Category;
+import com.cg.onlineadvapi.exception.CategoryException;
 import com.cg.onlineadvapi.repository.CategoryRepository;
 import com.cg.onlineadvapi.serviceImpl.CategoryServiceImpl;
 
@@ -40,5 +41,11 @@ class CategoryServiceImplTest {
 		assertEquals("Phone",expCategory.getCategory_description());
 		
 	}
+	@Test
+    public void test_addOrUpdateCategory() throws Exception{
+    	BDDMockito.given(categoryRepository.findAll())
+    	.willThrow(new CategoryException());
+    	assertThrows(CategoryException.class,()->categoryServiceImpl.addOrUpdateCategory(category));
+    }
 	
 }

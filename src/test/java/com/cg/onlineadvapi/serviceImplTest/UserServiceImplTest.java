@@ -13,6 +13,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import com.cg.onlineadvapi.domain.User;
+import com.cg.onlineadvapi.exception.NoUserException;
 import com.cg.onlineadvapi.repository.UserRepository;
 import com.cg.onlineadvapi.serviceImpl.UserServiceImpl;
 
@@ -51,6 +52,13 @@ class UserServiceImplTest {
 		assertEquals(user2, fetchData.get(0));
 		assertEquals(user1, fetchData.get(1));
 	}
+
+	@Test
+    public void test_viewUserList() throws Exception{
+    	BDDMockito.given(userRepository.findAll())
+    	.willThrow(new NoUserException());
+    	assertThrows(NoUserException.class,()->userServiceImpl.viewUserList());
+    }
 	
 	@Test
 	public void test_viewUser_GivenUserId_ShouldReturnUser() {
@@ -62,5 +70,12 @@ class UserServiceImplTest {
 //		assertEquals(user.getPassword(), fetchedUser.getPassword());
 	}
 	
+
+	@Test
+    public void test_viewUser() throws Exception{
+    	BDDMockito.given(userRepository.findByUserId(null))
+    	.willThrow(new NoUserException());
+    	assertThrows(NoUserException.class,()->userServiceImpl.viewUser(0));
+    }
 
 }

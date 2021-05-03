@@ -28,6 +28,4 @@ public interface UserService {
 	 */
 	public User viewUser(int userId);
 	
-
-
 }

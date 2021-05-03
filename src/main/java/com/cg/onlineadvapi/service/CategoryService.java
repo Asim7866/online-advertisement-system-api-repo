@@ -11,12 +11,7 @@ public interface CategoryService {
 	 */
 	public  Category addOrUpdateCategory(Category category);
 	
-	/**
-	 * This duplicateCategoryCheck method will check if duplicate category name exists in database
-	 * @param Category whose name to be verified
-	 * @return true if duplicate value found, otherwise false
-	 */
-//	public boolean duplicateCategoryCheck(Category category);
+	
 	
 
 	
