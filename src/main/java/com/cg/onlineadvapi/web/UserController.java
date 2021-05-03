@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+
+import com.cg.onlineadvapi.domain.Message;
 import com.cg.onlineadvapi.domain.User;
 import com.cg.onlineadvapi.service.UserService;
 import com.cg.onlineadvapi.serviceImpl.AdvertiseServiceImpl;
@@ -68,15 +70,10 @@ public class UserController {
 	/////////////////vishal :
 	
 	@GetMapping("/viewUserList")
-	public ResponseEntity<Object> viewUserList() {
+	public ResponseEntity<?> viewUserList() {
 		logger.info("For finding all USERS list");
-
-		List<User> userList = userService.viewUserList();
-		if (userList.isEmpty()) // check if no user in found in list
-			return ((BodyBuilder) ResponseEntity.notFound()).body("No user found"); // returns "No user found" message
-																					
-		return ResponseEntity.accepted().body(userList); // returns the user details if found..
-
+		List<User> user = userService.viewUserList();
+		return new ResponseEntity<List<User>>(user, HttpStatus.OK);
 	}
 
 	@GetMapping("/viewUser/{userId}")

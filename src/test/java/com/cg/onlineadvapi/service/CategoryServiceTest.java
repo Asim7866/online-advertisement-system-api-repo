@@ -1,4 +1,4 @@
-package com.cg.onlineadvapi.serviceTest;
+package com.cg.onlineadvapi.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,7 +13,7 @@ import com.cg.onlineadvapi.domain.Category;
 import com.cg.onlineadvapi.repository.CategoryRepository;
 import com.cg.onlineadvapi.serviceImpl.CategoryServiceImpl;
 
-class CategoryServiceImplTest {
+class CategoryServiceTest {
 
 	@Mock
 	private CategoryRepository categoryRepository;
@@ -40,5 +40,5 @@ class CategoryServiceImplTest {
 		assertEquals("Phone",expCategory.getCategory_description());
 		
 	}
+	}
 	
-}

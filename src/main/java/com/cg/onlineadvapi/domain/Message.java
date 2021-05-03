@@ -1,10 +1,15 @@
 package com.cg.onlineadvapi.domain;
 
 import java.util.Date;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -12,6 +17,8 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.validator.constraints.NotBlank;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jdk.jfr.Timestamp;
 
 /**
@@ -34,10 +41,6 @@ public class Message {
 	 */
 	private Integer advertiseId;
 	/**
-	 * This Field is used to Identify Sender User.
-	 */
-	private Integer senderId;
-	/**
 	 * This Field is used to Identify Receiver User.
 	 */
 	private Integer receiverId;
@@ -45,7 +48,10 @@ public class Message {
 	 * This Field is used to Identify Sender User Name.
 	 */
 	private String senderUserName;
-	
+	/**
+	 * sender ID
+	 */
+	private Integer senderId;
 	/**
 	 * This field to get Message 
 	 */
@@ -57,9 +63,16 @@ public class Message {
   */
 	@JsonFormat(pattern="HH:mm dd-MM-yyyy")
 	private Date send_At;
+	/**
+	 * This Field is used to Identify Sender User.
+	 */
+	@JsonIgnore
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "user_id")
+	private User user;
 	
-	
-  /**
+  
+/**
   * Constructor without Parameter.
   * Constructor without parameter
   */
@@ -74,11 +87,11 @@ public class Message {
 	 * @param senderUserName
 	 * @param message
 	 */
-	public Message(Integer advertiseId, Integer senderId, Integer receiverId, String senderUserName,
+	public Message(Integer advertiseId,Integer senderId, Integer receiverId, String senderUserName,
 			@Size(min = 1, max = 160, message = "Message Should be between 1 to 160 character") String message) {
 		super();
 		this.advertiseId = advertiseId;
-		this.senderId = senderId;
+		this.senderId=senderId;
 		this.receiverId = receiverId;
 		this.senderUserName = senderUserName;
 		this.message = message;
@@ -99,12 +112,7 @@ public class Message {
 	public void setAdvertiseId(Integer advertiseId) {
 		this.advertiseId = advertiseId;
 	}
-	public Integer getSenderId() {
-		return senderId;
-	}
-	public void setSenderId(Integer senderId) {
-		this.senderId = senderId;
-	}
+	
 	public Integer getReceiverId() {
 		return receiverId;
 	}
@@ -115,7 +123,7 @@ public class Message {
 		return senderUserName;
 	}
 	public void setSenderUserName(String senderUserName) {
-		this.senderUserName = senderUserName;
+		this.senderUserName =senderUserName;
 	}
 	public String getMessage() {
 		return message;
@@ -130,6 +138,19 @@ public class Message {
 		this.send_At = send_At;
 	}
 	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	public Integer getSenderId() {
+		return senderId;
+	}
+	public void setSenderId(Integer senderId) {
+		this.senderId = senderId;
+	}
 	/**
 	 * It Configure a Callback for PreInsert Events of the Field.
 	 */

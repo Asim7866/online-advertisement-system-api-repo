@@ -1,10 +1,14 @@
 package com.cg.onlineadvapi.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -62,8 +66,11 @@ public class Advertise {
 	 */
 private String status = "NEW";
 	
+private Integer userId;
 	
 	
+	
+
 	public Advertise(Integer advertiseId, @NotBlank(message = "Title is required") String advertiseTitle,
 			@NotBlank(message = "Category is required") @Pattern(regexp = "[a-zA-Z_.]*", message = "Category cannot contain special characters or number") String category,
 			@NotNull(message = "It cannot be empty") @DecimalMin(value = "1.0", inclusive = false, message = "Product Price should be greater than or equal to 1") Double price,
@@ -148,5 +155,13 @@ private String status = "NEW";
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
+	public Integer getUserId() {
+		return userId;
+	}
+		
+//	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+//	@JoinColumn(name = "user_id")
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
 }

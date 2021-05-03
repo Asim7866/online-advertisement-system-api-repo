@@ -117,11 +117,17 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
 		return new ResponseEntity<Object>(exceptionResponse,HttpStatus.BAD_REQUEST);
 	}
 	
-@ExceptionHandler
+	@ExceptionHandler
 	public final ResponseEntity<Object> handleCategoryException(CategoryException ex, WebRequest request) {
-		
 		CategoryExceptionResponse exceptionResponse =  new CategoryExceptionResponse(ex.getMessage());
 		return new ResponseEntity<Object>(exceptionResponse, HttpStatus.BAD_REQUEST);
 	}
+
+	@ExceptionHandler
+	public final ResponseEntity<Object> handleNoUser(NoUserException ex, WebRequest request){
+		NoUserExceptionResponse exceptionResponse = new NoUserExceptionResponse(ex.getMessage());
+		return new ResponseEntity<Object>(exceptionResponse, HttpStatus.BAD_REQUEST);
+}
+
 	
 }

@@ -28,7 +28,7 @@ import com.cg.onlineadvapi.serviceImpl.UserServiceImpl;
 import com.cg.onlineadvapi.web.CategoryController;
 
 @SpringBootTest
-class UserServicesTest {
+class UserServiceTest {
 	
 	// creating mock objects
 	@Mock

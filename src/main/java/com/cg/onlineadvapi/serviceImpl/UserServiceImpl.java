@@ -12,6 +12,7 @@ import java.util.Optional;
 import javax.servlet.http.HttpSession;
 import com.cg.onlineadvapi.exception.AdvertiseIdException;
 import com.cg.onlineadvapi.exception.FieldCannotBeBlankException;
+import com.cg.onlineadvapi.exception.NoUserException;
 import com.cg.onlineadvapi.exception.NullUserException;
 import com.cg.onlineadvapi.exception.PasswordMismatchException;
 import com.cg.onlineadvapi.exception.UserAlreadyExistException;
@@ -64,14 +65,22 @@ public class UserServiceImpl implements UserService {
 	public List<User> viewUserList() {
 		logger.info("For finding all USERS");
 		// Method to return list of all users, null if no users found.
-		return userRepository.findAll();
+		List<User> userList = userRepository.findAll();
+		if(userList.isEmpty()) {
+			throw new NoUserException("No User Found");
+		}
+		return userList;
 	}
 	
 	@Override
 	public User viewUser(int userId) {
 		logger.info("For finding USERS by ID");
 		// Returns user by UserId or null if not found
-		return userRepository.findByUserId(userId);
+		User user = userRepository.findByUserId(userId);
+		if(user==null) {
+			throw new NoUserException("User with userid "+userId+" doesn't Exist");
+		}
+		return user;
 	}
 
 	
