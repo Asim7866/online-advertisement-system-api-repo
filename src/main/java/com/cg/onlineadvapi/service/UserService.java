@@ -13,7 +13,7 @@ import com.cg.onlineadvapi.domain.User;
  */
 /**
  * This UserService is responsible for performing user related task.
- * @author Rupesh Singh
+ * @author rupesh Singh
  *
  */
 /**
