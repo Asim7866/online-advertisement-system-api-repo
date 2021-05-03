@@ -5,6 +5,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.cg.onlineadvapi.constant.UserRole;
 import com.cg.onlineadvapi.domain.User;
 import com.cg.onlineadvapi.repository.UserRepository;
 import com.cg.onlineadvapi.service.UserService;
@@ -134,19 +136,30 @@ public class UserServiceImpl implements UserService {
 	public User authenticateUser(String loginName, String password, HttpSession session) {
 		
 		User user = null;
-    if(loginName==null && password == null) {
+		if(loginName==null && password == null) {
+    		logger.error("Please Enter Login Credentials");
 			throw new NullUserException("Null User Cannot Login");
+			
 		}
 	  if(verifyloginName(loginName)&&verifyPassword(password)) {
 			if(loginName==null && password==null) {
+				logger.error("No Values for loginName and Password were given");
 				throw new FieldCannotBeBlankException("Please Enter LoginName and Password to login");
+				
 			}
 			//if((user = userRepository.findByLoginNameAndPassword(loginName,(encryptPwdImpl.getMd5(password))))==null) {
 			if((user = userRepository.findByLoginNameAndPassword(loginName,password))==null) {
+				logger.error("Login Failed ");
 				throw new UserNotFoundException("Login Failed || Invalid Credentials");
 			}
 		}
 			addUserInSession(user , session);
+			if(user.getRole().equals(UserRole.USER_ROLE_ADMIN)) {
+				logger.info("Admin "+user.getName()+ " Logged in Successfully");
+			}
+			else {
+				logger.info("User "+user.getName()+ " Logged in Successfully");
+			}
 			return user;
 
 		}
@@ -157,16 +170,18 @@ public class UserServiceImpl implements UserService {
 	 */
 	private boolean verifyPassword(String password) {	
 	if(password==null) {
-		
+		logger.error("Please provide Password to Login ");
 		throw new FieldCannotBeBlankException("Password should not be Blank");
 	}
-	if(password.length()>12) {
-		throw new UserNotFoundException("Password should be less than 12 character ");
+	if(password.length()>13) {
+		logger.error("Provided Password length is more then 13 characters");
+		throw new UserNotFoundException("Password should be less than 13 characters ");
 	}
 	if(password.length()<7) {
+		logger.error("Provided Password length is less then 7 characters");
 		throw new UserNotFoundException("Password must be atleast 8 character");
 	}
-	
+	logger.info("Provided Password Verified");
 	return true;
 }
 	
@@ -177,10 +192,12 @@ public class UserServiceImpl implements UserService {
 	 */
 	private boolean verifyloginName(String loginName) {
 	if(loginName==null) {
-		
+		logger.error("No LoginName Provided");
 		throw new FieldCannotBeBlankException("LoginName should not be Blank ");
 	}
+	logger.info("Provided LoginName Verified");
 	return true;
+	
 }
 
 	
@@ -189,6 +206,7 @@ public class UserServiceImpl implements UserService {
 			session.setAttribute("user", user);
 			session.setAttribute("userId", user.getUserId());
 			session.setAttribute("userRole", user.getRole());
+			logger.info("Added in Session Successfully ");
 			
 		}
 
