@@ -24,27 +24,61 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "users")
 public class User {
 
-	
+	/**
+	 * Id field auto generate id uniquely for every user 
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer userId;
+	
+	/**
+	 * name of the user
+	 */
 	@NotBlank(message="name cannot be left empty")
 	@Pattern(regexp = "^[a-zA-Z ]*$", message="User name should only contain alphabets")
 	private String name;
+	
+	/**
+	 * Login name of the user which will be unique for every user
+	 */
 	@NotBlank(message="Login name cannot be left blank")
-	@Column(unique=true) //this should be updatable = false
+	@Column(unique=true, updatable = false)
 	private String loginName;
+	
+	/**
+	 * Password of the user which should consist of 8 to 12 characters
+	 */
 	@Size(min = 8, max = 12, message = "Password should be greater than 7 and less than 13 characters")
 	private String password;
+	
+	/**
+	 * Password of the user which should consist of 8 to 12 characters
+	 */
 	@Size(min = 8, max = 12, message = "Password should be greater than 7 and less than 13 characters")
 	private String confirmPassword;
+	
+	/**
+	 * Contact number of the user which should be of 10 digits
+	 */
 	@Size(min = 10, max = 10, message="Contact number should consist 10 digits")
 	@Pattern(regexp= "[0-9]+", message="Contact number should only contain numeric value")
 	private String contactNo;
+	
+	/**
+	 * Email of the user which should be proper email pattern
+	 */
 	@Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$",message = "Email is Incorrect")
 	private String email;
+	
+	/**
+	 * Role of the user in 1 = user and 2 = admin
+	 */
 	@Column(updatable = false)
 	private Integer role;
+	
+	/**
+	 * Address of the user which will depend on user weather to provide it or not
+	 */
 	@Embedded
 	@JsonIgnore
 	private Address address;

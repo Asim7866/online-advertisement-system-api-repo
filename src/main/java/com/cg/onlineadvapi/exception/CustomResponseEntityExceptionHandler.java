@@ -63,7 +63,7 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
 	 * 
 	 * @param ex
 	 * @param request
-	 * @return If User password and comfirm password will not be same then exception will be thrown 
+	 * @return If User password and confirm password will not be same then exception will be thrown 
 	 * 	 */
 	
 	@ExceptionHandler(PasswordMismatchException.class)
@@ -75,11 +75,12 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
 	 * 
 	 * @param ex
 	 * @param request
-	 * @return If any unhandled exception is thrown is going to handled by this exception handler
+	 * @return If role selected by user is other than 1 & 2 then this exception will be thrown 
 	 */
-	@ExceptionHandler(NumberFormatException.class)
-	public ResponseEntity<Object> forAllException(NumberFormatException ex, WebRequest request){
-		return new ResponseEntity<Object>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+	@ExceptionHandler(InvalidRoleException.class)
+	public ResponseEntity<Object> forAllException(InvalidRoleException ex, WebRequest request){
+		InvalidRoleExceptionResponse invalidRoleExceptionResponse = new InvalidRoleExceptionResponse(ex.getMessage());
+		return new ResponseEntity<Object>(invalidRoleExceptionResponse, HttpStatus.BAD_REQUEST);
 	}
 	
 	/**

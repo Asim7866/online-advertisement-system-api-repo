@@ -1,17 +1,19 @@
 package com.cg.onlineadvapi.serviceImpl;
 
 import java.util.List;
+import java.util.Optional;
+
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.cg.onlineadvapi.domain.User;
-import com.cg.onlineadvapi.repository.UserRepository;
-import com.cg.onlineadvapi.service.UserService;
-import java.util.Optional;
-import javax.servlet.http.HttpSession;
 import com.cg.onlineadvapi.exception.AdvertiseIdException;
 import com.cg.onlineadvapi.exception.FieldCannotBeBlankException;
+import com.cg.onlineadvapi.exception.InvalidRoleException;
 import com.cg.onlineadvapi.exception.NoUserException;
 import com.cg.onlineadvapi.exception.NullUserException;
 import com.cg.onlineadvapi.exception.PasswordMismatchException;
@@ -104,7 +106,7 @@ public class UserServiceImpl implements UserService {
 		 * Logic to check if user is specifying correct role or not
 		 */
 		if(userToBeSave.getRole()!= 1 && userToBeSave.getRole()!= 2) {
-			throw new NumberFormatException("(E)Cannot enter value other than 1 and 2");
+			throw new InvalidRoleException("(E)Cannot enter value other than 1 and 2");
 		}
 		
 		/**
