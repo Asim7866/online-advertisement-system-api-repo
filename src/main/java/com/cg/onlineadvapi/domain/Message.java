@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -67,8 +68,8 @@ public class Message {
 	 * This Field is used to Identify Sender User.
 	 */
 	@JsonIgnore
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "user_id")
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "user_id" ,referencedColumnName = "userid")
 	private User user;
 	
   
@@ -158,8 +159,17 @@ public class Message {
 	protected void sendOn() {
 		this.send_At = new Date();
 	}
+	@Override
+	public String toString() {
+		return "Message with values : {messageId=" + messageId + ", advertiseId=" + advertiseId + ""
+				+ ", receiverId=" + receiverId
+				+ ", senderUserName=" + senderUserName
+				+ ", senderId=" + senderId + ", "
+				+ "message=" + message
+				+ ", send_At=" + send_At + ",}";
+	}
   
-
+  
 
 
 }
