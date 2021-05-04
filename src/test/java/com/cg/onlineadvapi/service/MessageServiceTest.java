@@ -70,7 +70,7 @@ class MessageServiceTest {
      * @throws Exception
      */
     @Test
-    public void test_sendMessage() throws Exception{
+    public void test_sendMessage_GivenSameSender() throws Exception{
     	BDDMockito.given(messageRepository.save(thirdMessage))
     	.willThrow(new SameSenderException());
     	assertThrows(SameSenderException.class,()->messageServiceImpl.sendMessage(thirdMessage));

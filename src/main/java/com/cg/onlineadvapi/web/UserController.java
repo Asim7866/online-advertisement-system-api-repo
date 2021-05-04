@@ -50,26 +50,24 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
-	
+
 	@Autowired
 	private UserService userService;
-  
+
 	@Autowired
 	private MapValidationErrorService mapValidationErrorService;
 
-  
 	Logger logger = LoggerFactory.getLogger(AdvertiseServiceImpl.class);
-	
-	
-	//////////shivam:
+
+
+	@ApiOperation(value = "Delete User By Id - Admin")
 	@GetMapping("/deleteUser/{userId}")
-	public String deleteUser(@PathVariable int userId)
-	{	//returns "UserId not found" message for invalid userId, otherwise returns "User deleted successfully"
+	public String deleteUser(@PathVariable int userId) { // returns "UserId not found" message for invalid userId,
+															// otherwise returns "User deleted successfully"
 		return userService.deleteUser(userId);
 	}
-	
-	/////////////////vishal :
-	
+
+	@ApiOperation(value = "View User List")
 	@GetMapping("/viewUserList")
 	public ResponseEntity<?> viewUserList() {
 		logger.info("For finding all USERS list");
@@ -77,6 +75,7 @@ public class UserController {
 		return new ResponseEntity<List<User>>(user, HttpStatus.OK);
 	}
 
+	@ApiOperation(value = "View User By Id")
 	@GetMapping("/viewUser/{userId}")
 	public ResponseEntity<Object> viewUser(@PathVariable int userId) {
 		logger.info("For finding USERS by ID");
@@ -85,23 +84,11 @@ public class UserController {
 
 		if (Objects.isNull(user.getUserId())) // check if null object returned because of invalid user id
 			return ((BodyBuilder) ResponseEntity.notFound()).body("UserId not found"); // returns "UserId not found"
-																						
+
 		return ResponseEntity.accepted().body(user); // returns the user details if user id is found..
 	}
 
-	
-//	@ApiOperation(value = "Create new User")
-//	@PostMapping("")
-//	public ResponseEntity<?> createNewUser(@Valid @RequestBody User user, BindingResult result) {
-//		ResponseEntity<?> errorMessage = mapValidationErrorService.mapValidationError(result);
-//		if (errorMessage != null)
-//			return errorMessage;
-//
-//		userService.saveOrUpdateUser(user);
-//		return new ResponseEntity<String>("User Created Successfully.", HttpStatus.CREATED);
-//	}
-
-
+	@ApiOperation(value = "Register User")
 	@PostMapping("/register")
 	public ResponseEntity<?> addUser(@Valid @RequestBody User user, BindingResult result) {
 		logger.info("Inside Controller class");
@@ -116,61 +103,57 @@ public class UserController {
 		return new ResponseEntity<User>(savedUser, HttpStatus.CREATED);
 	}
 
-	
-	
-		@PostMapping("/login")
+	@ApiOperation(value = "Login User")
+	@PostMapping("/login")
 	public ResponseEntity<?> loginUser(@RequestBody LoginCommand user, BindingResult result, HttpSession session) {
-		if (session.getAttribute("user")==null) {
-		ResponseEntity<?> errorMap = mapValidationErrorService.mapValidationError(result);
-		if (errorMap != null) {
-			return errorMap;
-		}
-		User loggedInUser = userService.authenticateUser(user.getLoginName(), user.getPassword(), session);
-		if (loggedInUser.getRole().equals(UserRole.USER_ROLE_ADMIN)) {
-			return new ResponseEntity<String>("Admin " + loggedInUser.getName() + " has Succesfully LoggedIn",
+		if (session.getAttribute("user") == null) {
+			ResponseEntity<?> errorMap = mapValidationErrorService.mapValidationError(result);
+			if (errorMap != null) {
+				return errorMap;
+			}
+			User loggedInUser = userService.authenticateUser(user.getLoginName(), user.getPassword(), session);
+			if (loggedInUser.getRole().equals(UserRole.USER_ROLE_ADMIN)) {
+				return new ResponseEntity<String>("Admin " + loggedInUser.getName() + " has Succesfully LoggedIn",
+						HttpStatus.OK);
+			}
+			return new ResponseEntity<String>("User " + loggedInUser.getName() + " has Succesfully LoggedIn",
 					HttpStatus.OK);
 		}
-		return new ResponseEntity<String>("User " + loggedInUser.getName() + " has Succesfully LoggedIn",
-				HttpStatus.OK);
-	}
 
 		return new ResponseEntity<String>("You have already logged In ", HttpStatus.BAD_REQUEST);
 	}
-	
-	
+
+	@ApiOperation(value = "Logout User")
 	@PostMapping("/logout")
 	public ResponseEntity<?> logUserOut(HttpSession session) {
+
 		session.invalidate();
+		logger.info("Logged out Successfully");
 		return new ResponseEntity<String>("Logged Out Successfully!!", HttpStatus.OK);
 	}
-	
+
 	@ApiOperation(value = "User Update")
 	@PatchMapping("")
-	public ResponseEntity<?> updateUser(@Valid @RequestBody User user, BindingResult result , HttpSession session) {
-		if (session.getAttribute("user")!=null) {
-		ResponseEntity<?> errorMessage = mapValidationErrorService.mapValidationError(result);
-		if (errorMessage != null)
-			return errorMessage;
+	public ResponseEntity<?> updateUser(@Valid @RequestBody User user, BindingResult result, HttpSession session) {
+		if (session.getAttribute("user") != null) {
+			ResponseEntity<?> errorMessage = mapValidationErrorService.mapValidationError(result);
+			if (errorMessage != null)
+				return errorMessage;
 
-		userService.saveOrUpdateUser(user);
-		return new ResponseEntity<String>("User Updated Successfully.", HttpStatus.CREATED);
-	}
+			userService.saveOrUpdateUser(user);
+			return new ResponseEntity<String>("User Updated Successfully.", HttpStatus.CREATED);
+		}
 		return new ResponseEntity<String>("You have not Logged In || Please  Login First ", HttpStatus.BAD_REQUEST);
-	}	
-	
+	}
 
-	
 	@ApiOperation(value = "Delete user by Id")
 	@DeleteMapping("/delete User by Id/{user_id}")
-	public ResponseEntity<?> deleteUserById(@PathVariable Integer user_id , HttpSession session) {
-		if (session.getAttribute("user")!=null) {
-		userService.deleteById(user_id);
-		return new ResponseEntity<String>("Id " + user_id + " user Deleted.", HttpStatus.OK);
-	}
+	public ResponseEntity<?> deleteUserById(@PathVariable Integer user_id, HttpSession session) {
+		if (session.getAttribute("user") != null) {
+			userService.deleteById(user_id);
+			return new ResponseEntity<String>("Id " + user_id + " user Deleted.", HttpStatus.OK);
+		}
 		return new ResponseEntity<String>("You have not Logged In || Please  Login First ", HttpStatus.BAD_REQUEST);
-	}	
-	
-	
-	
-	
+	}
+
 }

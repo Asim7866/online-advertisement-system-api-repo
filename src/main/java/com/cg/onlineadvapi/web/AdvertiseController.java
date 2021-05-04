@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.cg.onlineadvapi.constant.AdvertiseConstants;
 import com.cg.onlineadvapi.domain.Advertise;
 import com.cg.onlineadvapi.service.AdvertiseService;
 import com.cg.onlineadvapi.serviceImpl.MapValidationErrorService;
@@ -34,12 +36,15 @@ public class AdvertiseController {
 	private MapValidationErrorService mapValidationErrorService;
   
 	////////////shivam:
+	@ApiOperation(value = "View Advertise")
 	@PostMapping("/viewAdvertisementByUser")
 	public ResponseEntity<Object> viewAdvertisementByUser(int userId) throws Exception
 	{	//ResponseEntity<Object> fetchedData=adminService.viewAdvertisementByUser(userId);
 		
 		return advertiseService.viewAdvertisementByUser(userId);
 	}
+	
+	@ApiOperation(value = "Delete Advertise")
 	@PostMapping("/deleteAdvertise")
 	public String deleteAdvertise(int advertisementId)
 	{	//returns "AdvertisementId not found" message for invalid AdvertisementId, otherwise returns "Advertisement deleted successfully"
@@ -58,7 +63,7 @@ public class AdvertiseController {
 	}
 	
 	@ApiOperation(value = "Update Advertise")
-	@PatchMapping("")
+	@PatchMapping("/updateAdvertise")
 	public ResponseEntity<?> updateAdvertise(@Valid @RequestBody Advertise advertise, BindingResult result) {
 		ResponseEntity <?> errorMessage =mapValidationErrorService.mapValidationError(result);
 		if(errorMessage!=null) return errorMessage;
@@ -70,7 +75,7 @@ public class AdvertiseController {
 	@ApiOperation(value = "For admin to accept/reject/close advertise")
 	@PutMapping("/acceptOrRejectStatus")
 	public String openOrClosedOrRejectAdvertise(Advertise advertise) {
-		if(advertise.getStatus().equals("NEW")||advertise.getStatus().equals("OPEN")||advertise.getStatus().equals("REJECTED")||advertise.getStatus().equals("CLOSED")) {
+		if(advertise.getStatus()==AdvertiseConstants.USER_STATUS_NEW||advertise.getStatus()==AdvertiseConstants.USER_STATUS_OPEN||advertise.getStatus()==AdvertiseConstants.USER_STATUS_CLOSED||advertise.getStatus()==AdvertiseConstants.USER_STATUS_REJECTED) {
 		advertiseService.openOrRejectOrClosedAdvertise(advertise);
 		return "Status changed successfully";
 		}else {
@@ -138,5 +143,4 @@ public class AdvertiseController {
 	public Advertise getAdvertiseById(@PathVariable Integer advertiseId) {
 		 return advertiseService.findAdvertiseById(advertiseId);
 	}
-	
 }

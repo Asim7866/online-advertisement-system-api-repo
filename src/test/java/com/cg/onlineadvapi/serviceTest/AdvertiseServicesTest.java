@@ -51,7 +51,7 @@ class AdvertiseServicesTest {
 
 		advertiseList1 = new ArrayList<>();
 		advertiseList2 = new ArrayList<>();
-		advertiseList1.add(new Advertise(1, "1", "1", 1d, "1", "1"));
+		advertiseList1.add(new Advertise(1, "1", "1", 1d, "1",1));
 
 		// setting up mock object's method to return list of advertisement, when called
 		BDDMockito.given(advertiseRepository.viewAdvertisementByUser(0)).willReturn(advertiseList1);

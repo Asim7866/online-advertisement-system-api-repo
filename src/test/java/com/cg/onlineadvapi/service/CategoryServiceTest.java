@@ -33,7 +33,7 @@ class CategoryServiceTest {
 	public void test_addOrUpdateCategory_GivenCategory_ShouldReturnSavedCategory() {
 		BDDMockito.given(categoryRepository.save(category))
 		.willReturn(new Category("Mobile","Phone"));
-		Category expCategory= categoryServiceImpl.addOrUpdateCategory(category);
+		Category expCategory= categoryServiceImpl.saveOrUpdate(category);
 		
 		assertNotNull(expCategory);
 		assertEquals("Mobile", expCategory.getCategoryName());

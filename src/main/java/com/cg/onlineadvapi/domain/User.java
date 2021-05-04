@@ -87,6 +87,7 @@ public class User {
 	@JoinColumn(name="user_id" ,referencedColumnName = "userId")
 	private List<Advertise> advertise=new ArrayList<>();
 
+
 	
 	public User() {
 		super();

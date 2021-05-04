@@ -1,6 +1,7 @@
 package com.cg.onlineadvapi.service;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.verify;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +51,7 @@ class AdvertiseServiceTest {
 	
 	@Test
 	public void test_saveORUpdate_GivenAdvertise_ShouldReturnAdvertise() {
-		firstAdvertise = new Advertise("samsung","mobile",3000.0d,"second hand phone","NEW");
+		firstAdvertise = new Advertise("samsung","mobile",3000.0d,"second hand phone",1);
 		BDDMockito.given(advertiseRepository.save(advertise))
 		.willReturn(firstAdvertise);
 		secondAdvertise = advertiseServiceImpl.saveORUpdate(advertise);
@@ -59,7 +60,7 @@ class AdvertiseServiceTest {
 		assertEquals("mobile", secondAdvertise.getCategory());
 		assertEquals(3000,secondAdvertise.getPrice());
 		assertEquals("second hand phone",secondAdvertise.getDescription());
-		assertEquals("NEW",secondAdvertise.getStatus());
+		assertEquals(1,secondAdvertise.getStatus());
 	}
 	
 	@Test
@@ -69,18 +70,6 @@ class AdvertiseServiceTest {
 		assertThrows(NullPointerException.class, ()->advertiseServiceImpl.saveORUpdate(advertise));
 	}
 	
-//	@Test
-//    public void test_deleteAdvertiseById_GivenAdvertiseId_ShouldDeleteAdvertisesById() {
-//    	advertiseServiceImpl.deleteAdvertiseById(firstAdvertise.getAdvertiseId());
-//    	verify(advertiseRepository).deleteById(firstAdvertise.getAdvertiseId());
-//    	assertNull(firstAdvertise.getAdvertiseId());
-//    	assertNull(firstAdvertise.getAdvertiseTitle());
-//    	assertNull(firstAdvertise.getCategory());
-//    	assertNull(firstAdvertise.getPrice());
-//    	assertNull(firstAdvertise.getDescription());
-//    	assertNull(firstAdvertise.getStatus());
-//	}
-	
 	@Test
 	public void test_deleteAdvertiseById() throws Exception {
 		BDDMockito.given(advertiseRepository.findById(advertise.getAdvertiseId()))
@@ -89,9 +78,16 @@ class AdvertiseServiceTest {
 	}
 	
 	@Test
+	public void test_openOrRejectOrClosedAdvertise() throws Exception {
+		BDDMockito.given(advertiseRepository.findById(advertise.getAdvertiseId()))
+		.willThrow(new AdvertiseIdException());
+		assertThrows(AdvertiseIdException.class, ()->advertiseServiceImpl.openOrRejectOrClosedAdvertise(advertise));
+	}
+	
+	@Test
 	public void test_getAllOpenStatusAdvertise_GivenAdvertiseWithOpenStatus_ShouldReturnOpenStatusAdvertise() {
-		firstAdvertise = new Advertise("samsung","mobile",3000.0d,"second hand phone","OPEN");
-		secondAdvertise = new Advertise("mi","mobile",4000.0d,"second hand phone","OPEN");
+		firstAdvertise = new Advertise("samsung","mobile",3000.0d,"second hand phone",2);
+		secondAdvertise = new Advertise("mi","mobile",4000.0d,"second hand phone",2);
 		advertiseList.add(firstAdvertise);
 		advertiseList.add(secondAdvertise);
 		BDDMockito.given(advertiseRepository.getAllOPENAdvertise())
@@ -120,8 +116,8 @@ class AdvertiseServiceTest {
 	
 	@Test
 	public void test_getAllNewStatusAdvertise_GivenAdvertiseWithNewStatus_ShouldReturnNewStatusAdvertise() {
-		firstAdvertise = new Advertise("samsung","mobile",3000.0d,"second hand phone","NEW");
-		secondAdvertise = new Advertise("mi","mobile",4000.0d,"second hand phone","NEW");
+		firstAdvertise = new Advertise("samsung","mobile",3000.0d,"second hand phone",1);
+		secondAdvertise = new Advertise("mi","mobile",4000.0d,"second hand phone",1);
 		advertiseList.add(firstAdvertise);
 		advertiseList.add(secondAdvertise);
 		BDDMockito.given(advertiseRepository.getAllNEWAdvertise())
@@ -143,8 +139,8 @@ class AdvertiseServiceTest {
 	
 	@Test
 	public void test_getAllClosedStatusAdvertise_GivenAdvertiseWithClosedStatus_ShouldReturnClosedStatusAdvertise() {
-		firstAdvertise = new Advertise("samsung","mobile",3000.0d,"second hand phone","CLOSED");
-		secondAdvertise = new Advertise("mi","mobile",7000.0d,"new phone","CLOSED");
+		firstAdvertise = new Advertise("samsung","mobile",3000.0d,"second hand phone",3);
+		secondAdvertise = new Advertise("mi","mobile",7000.0d,"new phone",3);
 		advertiseList.add(firstAdvertise);
 		advertiseList.add(secondAdvertise);
 		BDDMockito.given(advertiseRepository.getAllCLOSEDAdvertise())
@@ -166,8 +162,8 @@ class AdvertiseServiceTest {
 	
 	@Test
 	public void test_getAllRejectedStatusAdvertise_GivenAdvertiseWithRejectedStatus_ShouldReturnRejectedStatusAdvertise() {
-		firstAdvertise = new Advertise("samsung","mobile",3000.0d,"second hand phone","REJECTED");
-		secondAdvertise = new Advertise("mi","mobile",4000.0d,"second hand phone","REJECTED");
+		firstAdvertise = new Advertise("samsung","mobile",3000.0d,"second hand phone",4);
+		secondAdvertise = new Advertise("mi","mobile",4000.0d,"second hand phone",4);
 		advertiseList.add(firstAdvertise);
 		advertiseList.add(secondAdvertise);
 		BDDMockito.given(advertiseRepository.getAllREJECTEDAdvertise())
@@ -189,9 +185,9 @@ class AdvertiseServiceTest {
 	
 	@Test
 	public void test_findAllAdvertise_GivenAdvertise_ShouldReturnGivenAdvertise() {
-		firstAdvertise = new Advertise("samsung","mobile",3000.0d,"second hand phone","OPEN");
-		secondAdvertise = new Advertise("mi","mobile",4000.0d,"second hand phone","NEW");
-		thirdAdvertise = new Advertise("ray zr","vehicles",35000.0d,"second hand scooty","NEW");
+		firstAdvertise = new Advertise("samsung","mobile",3000.0d,"second hand phone",2);
+		secondAdvertise = new Advertise("mi","mobile",4000.0d,"second hand phone",1);
+		thirdAdvertise = new Advertise("ray zr","vehicles",35000.0d,"second hand scooty",1);
 		advertiseList.add(firstAdvertise);
 		advertiseList.add(secondAdvertise);
 		advertiseList.add(thirdAdvertise);
@@ -221,8 +217,3 @@ class AdvertiseServiceTest {
 	}
 	
 }
-
-
-
-
-

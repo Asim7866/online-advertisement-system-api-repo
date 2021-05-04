@@ -1,17 +1,19 @@
 package com.cg.onlineadvapi.service;
+
+import java.util.List;
 import com.cg.onlineadvapi.domain.Category;
+
 public interface CategoryService {
+
 	/**
-	 * This addCategory method will add new or update existing category in the database
-	 * @param Category to be updated/added
-	 * @return Category which is updated/added
+	 * This method is used to create category for user to post advertise managed by admin module
+	 * @param category
+	 * @return category detail
 	 */
-	public  Category addOrUpdateCategory(Category category);
+	public Category saveOrUpdate(Category category);
 	
-	/**
-	 * This duplicateCategoryCheck method will check if duplicate category name exists in database
-	 * @param Category whose name to be verified
-	 * @return true if duplicate value found, otherwise false
-	 */
-//	public boolean duplicateCategoryCheck(Category category);
+	public void deleteById(Integer categoryId);
+	 
+	public List<Category> viewAllCategory();
+
 }

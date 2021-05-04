@@ -39,7 +39,7 @@ public class Advertise {
 	 * @NotBlank used to give required error message if field is empty
 	 */
 	@NotBlank(message = "Title is required")
-	@Pattern(regexp = "[A-Za-z0-9_.]*",message = "Advertise title cannot contain special chracters")
+	//@Pattern(regexp = "[A-Za-z0-9_.]*",message = "Advertise title cannot contain special chracters")
 	private String advertiseTitle;
 	/**
 	 * Advertise category this define the type of advertise 
@@ -68,7 +68,7 @@ public class Advertise {
 	 * Denote the status of advertise posted
 	 * default value is NEW 
 	 */
-	private String status = "NEW";
+	private Integer status;
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="adv_id" ,referencedColumnName = "advertiseId")
@@ -76,11 +76,12 @@ public class Advertise {
 
 	private Integer user_id;
 	
+	private Integer category_id;
 	
 	public Advertise(Integer advertiseId, @NotBlank(message = "Title is required") String advertiseTitle,
 			@NotBlank(message = "Category is required") @Pattern(regexp = "[a-zA-Z_.]*", message = "Category cannot contain special characters or number") String category,
 			@NotNull(message = "It cannot be empty") @DecimalMin(value = "1.0", inclusive = false, message = "Product Price should be greater than or equal to 1") Double price,
-			String description, String status) {
+			String description, Integer status) {
 		super();
 		this.advertiseId = advertiseId;
 		this.advertiseTitle = advertiseTitle;
@@ -101,7 +102,7 @@ public class Advertise {
 			@NotBlank(message = "Title is required") @Pattern(regexp = "[A-Za-z0-9_.]*", message = "Advertise title cannot contain special chracters") String advertiseTitle,
 			@NotBlank(message = "Category is required") @Pattern(regexp = "[a-zA-Z_.]*", message = "Category cannot contain special characters or number") String category,
 			@NotNull(message = "It cannot be empty") @DecimalMin(value = "0", inclusive = false, message = "Product Price should be greater than or equal to 1") Double price,
-			String description, String status) {
+			String description, Integer status) {
 		super();
 		this.advertiseTitle = advertiseTitle;
 		this.category = category;
@@ -163,12 +164,16 @@ public class Advertise {
 		this.description = description;
 	}
 
-	public String getStatus() {
+	public Integer getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Integer status) {
 		this.status = status;
+	}
+
+	public void setCategory_id(Integer category_id) {
+		this.category_id = category_id;
 	}
 	
 	
