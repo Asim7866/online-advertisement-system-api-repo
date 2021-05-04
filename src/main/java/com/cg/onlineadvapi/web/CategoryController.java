@@ -20,38 +20,37 @@ import com.cg.onlineadvapi.serviceImpl.MapValidationErrorService;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/api/category") 
+@RequestMapping("/api/category")
 public class CategoryController {
 
 	@Autowired
 	private CategoryService categoryService;
-	
+
 	@Autowired
 	private MapValidationErrorService mapValidationErrorService;
-	
+
 	@ApiOperation(value = "Used to add category")
 	@PostMapping("/addCategory")
-	public ResponseEntity<?> addCategory( @Valid @RequestBody Category category,BindingResult result){
-		ResponseEntity <?> errorMessage =mapValidationErrorService.mapValidationError(result);
-		if(errorMessage!=null) return errorMessage;
-		
+	public ResponseEntity<?> addCategory(@Valid @RequestBody Category category, BindingResult result) {
+		ResponseEntity<?> errorMessage = mapValidationErrorService.mapValidationError(result);
+		if (errorMessage != null)
+			return errorMessage;
+
 		categoryService.saveOrUpdate(category);
-		return new ResponseEntity<String>("Category added successfully",HttpStatus.CREATED);
+		return new ResponseEntity<String>("Category added successfully", HttpStatus.CREATED);
 
 	}
 
 	@ApiOperation(value = "View all Category(for admin)")
 	@GetMapping("/getAllCategory")
-	public List<Category> getAllUser(){
+	public List<Category> getAllUser() {
 		return categoryService.viewAllCategory();
 	}
-	
+
 	@ApiOperation(value = "View all Category(for admin)")
 	@DeleteMapping("/deletecategoryById/{category_id}")
-	public void deleteById(@PathVariable Integer category_id ){
+	public void deleteById(@PathVariable Integer category_id) {
 		categoryService.deleteById(category_id);
 	}
-	
-	
-	
+
 }

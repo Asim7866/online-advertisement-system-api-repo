@@ -1,28 +1,32 @@
 package com.cg.onlineadvapi.repository;
+
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import com.cg.onlineadvapi.domain.Message;
+
 /**
- * This Interface is responsible  for all CRUD operations on the database .
+ * This Interface is responsible for all CRUD operations on the database .
+ * 
  * @author mohdansa
  *
  */
 @Repository
-public interface MessageRepository extends JpaRepository<Message, Integer>{
+public interface MessageRepository extends JpaRepository<Message, Integer> {
 
 	/**
 	 * It find Message send by user.
+	 * 
 	 * @param senderId
 	 * @return Message
 	 */
-	
 	List<Message> findBySenderId(Integer senderId);
-	
+
 	/**
 	 * It find list of Message of Advertise.
+	 * 
 	 * @param advertiseId
 	 * @return List of Message
 	 */
@@ -31,9 +35,10 @@ public interface MessageRepository extends JpaRepository<Message, Integer>{
 
 	/**
 	 * It find Message by Message Id.
+	 * 
 	 * @param messageId
 	 * @return Message
 	 */
 	Message findByMessageId(Integer messageId);
-	
+
 }

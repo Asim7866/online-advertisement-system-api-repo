@@ -3,7 +3,7 @@ package com.cg.onlineadvapi.exception;
 public class NoAdvertiseExceptionResponse {
 
 	private String noAdvertise;
-	
+
 	public NoAdvertiseExceptionResponse(String noAdvertise) {
 		super();
 		this.noAdvertise = noAdvertise;

@@ -24,123 +24,127 @@ import com.cg.onlineadvapi.service.AdvertiseService;
 import com.cg.onlineadvapi.serviceImpl.MapValidationErrorService;
 import io.swagger.annotations.ApiOperation;
 
-
 @RestController
 
 @RequestMapping("/api")
 public class AdvertiseController {
 	@Autowired
 	private AdvertiseService advertiseService;
-	
+
 	@Autowired
 	private MapValidationErrorService mapValidationErrorService;
-  
-	////////////shivam:
+
+	//////////// shivam:
 	@ApiOperation(value = "View Advertise")
 	@PostMapping("/viewAdvertisementByUser")
-	public ResponseEntity<Object> viewAdvertisementByUser(int userId) throws Exception
-	{	//ResponseEntity<Object> fetchedData=adminService.viewAdvertisementByUser(userId);
-		
+	public ResponseEntity<Object> viewAdvertisementByUser(int userId) throws Exception { // ResponseEntity<Object>
+																							// fetchedData=adminService.viewAdvertisementByUser(userId);
+
 		return advertiseService.viewAdvertisementByUser(userId);
 	}
-	
+
 	@ApiOperation(value = "Delete Advertise")
 	@PostMapping("/deleteAdvertise")
-	public String deleteAdvertise(int advertisementId)
-	{	//returns "AdvertisementId not found" message for invalid AdvertisementId, otherwise returns "Advertisement deleted successfully"
+	public String deleteAdvertise(int advertisementId) { // returns "AdvertisementId not found" message for invalid
+															// AdvertisementId, otherwise returns "Advertisement deleted
+															// successfully"
 		return advertiseService.deleteAdvertise(advertisementId);
 	}
 
-	
 	@ApiOperation(value = "Create new Advertise")
 	@PostMapping("")
 	public ResponseEntity<?> createNewAdvertise(@Valid @RequestBody Advertise advertise, BindingResult result) {
-		ResponseEntity <?> errorMessage =mapValidationErrorService.mapValidationError(result);
-		if(errorMessage!=null) return errorMessage;
-		
+		ResponseEntity<?> errorMessage = mapValidationErrorService.mapValidationError(result);
+		if (errorMessage != null)
+			return errorMessage;
+
 		advertiseService.saveORUpdate(advertise);
 		return new ResponseEntity<String>("Posted Successfully. Waiting for Admin Confirmation", HttpStatus.CREATED);
 	}
-	
+
 	@ApiOperation(value = "Update Advertise")
 	@PatchMapping("/updateAdvertise")
 	public ResponseEntity<?> updateAdvertise(@Valid @RequestBody Advertise advertise, BindingResult result) {
-		ResponseEntity <?> errorMessage =mapValidationErrorService.mapValidationError(result);
-		if(errorMessage!=null) return errorMessage;
-		
+		ResponseEntity<?> errorMessage = mapValidationErrorService.mapValidationError(result);
+		if (errorMessage != null)
+			return errorMessage;
+
 		advertiseService.saveORUpdate(advertise);
-		return new ResponseEntity<String>(advertise.getAdvertiseTitle()+" Updated Successfully", HttpStatus.CREATED);
+		return new ResponseEntity<String>(advertise.getAdvertiseTitle() + " Updated Successfully", HttpStatus.CREATED);
 	}
-	
+
 	@ApiOperation(value = "For admin to accept/reject/close advertise")
 	@PutMapping("/acceptOrRejectStatus")
 	public String openOrClosedOrRejectAdvertise(Advertise advertise) {
-		if(advertise.getStatus()==AdvertiseConstants.USER_STATUS_NEW||advertise.getStatus()==AdvertiseConstants.USER_STATUS_OPEN||advertise.getStatus()==AdvertiseConstants.USER_STATUS_CLOSED||advertise.getStatus()==AdvertiseConstants.USER_STATUS_REJECTED) {
-		advertiseService.openOrRejectOrClosedAdvertise(advertise);
-		return "Status changed successfully";
-		}else {
+		if (advertise.getStatus() == AdvertiseConstants.USER_STATUS_NEW
+				|| advertise.getStatus() == AdvertiseConstants.USER_STATUS_OPEN
+				|| advertise.getStatus() == AdvertiseConstants.USER_STATUS_CLOSED
+				|| advertise.getStatus() == AdvertiseConstants.USER_STATUS_REJECTED) {
+			advertiseService.openOrRejectOrClosedAdvertise(advertise);
+			return "Status changed successfully";
+		} else {
 			return "Please select valid status(OPEN,CLOSED,REJECTED) or Enter valid advertiseId";
 		}
 	}
-	
+
 	@ApiOperation(value = "Get all open advertise(for admin)")
 	@GetMapping("/getOpenAdvertise")
-	public List<Advertise> getAllOpenAdvertise(){
+	public List<Advertise> getAllOpenAdvertise() {
 		return advertiseService.getAllOpenStatusAdvertise();
 	}
-	
+
 	@ApiOperation(value = "Get all open advertise(for user)")
 	@GetMapping("/getOpenAdvertiseForUser")
-	public List<Advertise> getAllOpenAdvertiseForUser(){
+	public List<Advertise> getAllOpenAdvertiseForUser() {
 		return advertiseService.getAllOpenStatusAdvertise();
 	}
-	
+
 	@ApiOperation(value = "Get all new advertise(for admin)")
 	@GetMapping("/getNewAdvertise")
-	public List<Advertise> getAllNewAdvertise(){
+	public List<Advertise> getAllNewAdvertise() {
 		return advertiseService.getAllNewStatusAdvertise();
 	}
-	
+
 	@ApiOperation(value = "Get all closed advertise(for admin)")
 	@GetMapping("/getClosedAdvertise")
-	public List<Advertise> getAllClosedAdvertise(){
+	public List<Advertise> getAllClosedAdvertise() {
 		return advertiseService.getAllClosedStatusAdvertise();
 	}
-	
+
 	@ApiOperation(value = "Get all rejected advertise(for admin)")
 	@GetMapping("/getAccepteRejectedAdvertise")
-	public List<Advertise> getAllRejectedAdvertise(){
+	public List<Advertise> getAllRejectedAdvertise() {
 		return advertiseService.getAllRejectedStatusAdvertise();
 	}
-	
+
 	@ApiOperation(value = "Get All open/new/closed/rejected Advertise(for admin)")
 	@GetMapping("/getAllAdvertise")
-	public List<Advertise> getAllAdvertise(){
+	public List<Advertise> getAllAdvertise() {
 		return advertiseService.findAllAdvertise();
 	}
-	
+
 	@ApiOperation(value = "Delete Advertise By Id(for admin)")
 	@DeleteMapping("/{advertiseId}")
-	public ResponseEntity<?> deleteAdvertise(@PathVariable Integer advertiseId){
+	public ResponseEntity<?> deleteAdvertise(@PathVariable Integer advertiseId) {
 		advertiseService.deleteAdvertiseById(advertiseId);
-		return new ResponseEntity<String>("Id "+advertiseId+" deleted Successfully",HttpStatus.OK);
+		return new ResponseEntity<String>("Id " + advertiseId + " deleted Successfully", HttpStatus.OK);
 	}
-	
+
 	@ApiOperation(value = "Delete Advertise By Id(for user)")
 	@DeleteMapping("/deleteAdvertiseForUser/{advertiseId}")
-	public void deleteAdById(@PathVariable Integer advertiseId){
+	public void deleteAdById(@PathVariable Integer advertiseId) {
 		advertiseService.deleteAdById(advertiseId);
 	}
-	
-	@ApiOperation(value  = "Search all advertise by title(for user)")
+
+	@ApiOperation(value = "Search all advertise by title(for user)")
 	@GetMapping("/getAllAdvertiseByTitle/{advertiseTitle}")
-	public List<Advertise> getAllAdvertiseByTitle(@PathVariable String advertiseTitle){
+	public List<Advertise> getAllAdvertiseByTitle(@PathVariable String advertiseTitle) {
 		return advertiseService.findAllOPENAdvertise(advertiseTitle);
 	}
-	
+
 	@ApiOperation(value = "Get Advertise By Id(for user)")
 	@GetMapping("/getAdvertiseById/{advertiseId}")
 	public Advertise getAdvertiseById(@PathVariable Integer advertiseId) {
-		 return advertiseService.findAdvertiseById(advertiseId);
+		return advertiseService.findAdvertiseById(advertiseId);
 	}
 }

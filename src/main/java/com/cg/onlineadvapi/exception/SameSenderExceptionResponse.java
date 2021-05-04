@@ -1,6 +1,9 @@
 package com.cg.onlineadvapi.exception;
+
 /**
- * This Exception response class is responsible for handling exception regarding no messages for a user.
+ * This Exception response class is responsible for handling exception regarding
+ * no messages for a user.
+ * 
  * @author mohdansa
  */
 public class SameSenderExceptionResponse {
@@ -12,6 +15,7 @@ public class SameSenderExceptionResponse {
 
 	/**
 	 * Constructor with parameters.
+	 * 
 	 * @param message
 	 */
 	public SameSenderExceptionResponse(String senderMessages) {
@@ -30,6 +34,4 @@ public class SameSenderExceptionResponse {
 		this.senderMessages = senderMessages;
 	}
 
-	
-	
 }

@@ -59,7 +59,6 @@ public class UserController {
 
 	Logger logger = LoggerFactory.getLogger(AdvertiseServiceImpl.class);
 
-
 	@ApiOperation(value = "Delete User By Id - Admin")
 	@GetMapping("/deleteUser/{userId}")
 	public String deleteUser(@PathVariable int userId) { // returns "UserId not found" message for invalid userId,

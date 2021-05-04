@@ -24,42 +24,40 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "users")
 public class User {
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer userId;
-	@NotBlank(message="name cannot be left empty")
-	@Pattern(regexp = "^[a-zA-Z ]*$", message="User name should only contain alphabets")
+	@NotBlank(message = "name cannot be left empty")
+	@Pattern(regexp = "^[a-zA-Z ]*$", message = "User name should only contain alphabets")
 	private String name;
-	@NotBlank(message="Login name cannot be left blank")
-	@Column(unique=true) //this should be updatable = false
+	@NotBlank(message = "Login name cannot be left blank")
+	@Column(unique = true) // this should be updatable = false
 	private String loginName;
 	@Size(min = 8, max = 12, message = "Password should be greater than 7 and less than 13 characters")
 	private String password;
 	@Size(min = 8, max = 12, message = "Password should be greater than 7 and less than 13 characters")
 	private String confirmPassword;
-	@Size(min = 10, max = 10, message="Contact number should consist 10 digits")
-	@Pattern(regexp= "[0-9]+", message="Contact number should only contain numeric value")
+	@Size(min = 10, max = 10, message = "Contact number should consist 10 digits")
+	@Pattern(regexp = "[0-9]+", message = "Contact number should only contain numeric value")
 	private String contactNo;
-	@Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$",message = "Email is Incorrect")
+	@Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$", message = "Email is Incorrect")
 	private String email;
 	@Column(updatable = false)
 	private Integer role;
 	@Embedded
 	@JsonIgnore
 	private Address address;
-	
+
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="user_id" ,referencedColumnName = "userId")
-	private List<Advertise> advertise=new ArrayList<>();
+	@JoinColumn(name = "user_id", referencedColumnName = "userId")
+	private List<Advertise> advertise = new ArrayList<>();
 
-
-	
 	public User() {
 		super();
 	}
-	
-	public User(String name, String loginName, String password, String confirmPassword, String contactNo, String email, Integer role) {
+
+	public User(String name, String loginName, String password, String confirmPassword, String contactNo, String email,
+			Integer role) {
 		super();
 		this.name = name;
 		this.loginName = loginName;
@@ -70,8 +68,6 @@ public class User {
 		this.role = role;
 	}
 
-
-	
 	public User(
 			@NotBlank(message = "name cannot be left empty") @Pattern(regexp = "^[a-zA-Z ]*$", message = "User name should only contain alphabets") String name,
 			@Size(min = 10, max = 10, message = "Contact number should consist 10 digits") @Pattern(regexp = "[0-9]+", message = "Contact number should only contain numeric value") String contactNo,
@@ -121,17 +117,14 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
 
 	public String getConfirmPassword() {
 		return confirmPassword;
 	}
 
-
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
 	}
-
 
 	public String getContactNo() {
 		return contactNo;
@@ -156,7 +149,7 @@ public class User {
 	public void setRole(Integer role) {
 		this.role = role;
 	}
-	
+
 	public Address getAddress() {
 		return address;
 	}
@@ -165,13 +158,10 @@ public class User {
 		this.address = address;
 	}
 
-
 	@Override
 	public String toString() {
 		return "User [name=" + name + ", loginName=" + loginName + ", password=" + password + ", confirmPassword="
 				+ confirmPassword + ", contactNo=" + contactNo + ", email=" + email + ", role=" + role + "]";
 	}
-	
-	
-	
+
 }

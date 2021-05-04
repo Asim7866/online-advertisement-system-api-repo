@@ -1,6 +1,9 @@
 package com.cg.onlineadvapi.exception;
+
 /**
- * This Exception response class is responsible for handling Exception regarding no messages.
+ * This Exception response class is responsible for handling Exception regarding
+ * no messages.
+ * 
  * @author mohdansa
  */
 public class NoUserExceptionResponse {
@@ -10,9 +13,9 @@ public class NoUserExceptionResponse {
 	 */
 	private String user;
 
-	
 	/**
 	 * Constructor with parameters.
+	 * 
 	 * @param message
 	 */
 	public NoUserExceptionResponse(String user) {
@@ -30,6 +33,5 @@ public class NoUserExceptionResponse {
 	public void setUser(String user) {
 		this.user = user;
 	}
-	
-	
+
 }

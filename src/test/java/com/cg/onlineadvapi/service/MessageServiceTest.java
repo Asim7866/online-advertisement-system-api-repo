@@ -20,12 +20,21 @@ import com.cg.onlineadvapi.serviceImpl.MessageServiceImpl;
 
 class MessageServiceTest {
 
-	@Mock //- mock bean
+	/**
+	 * It is used to create and inject mocked instances
+	 */
+	@Mock 
     private MessageRepository messageRepository;
 	
-    @InjectMocks // mock bean injection
+	/**
+	 *  It allows you to specify a field on which an injection is to be performed.
+	 */
+    @InjectMocks 
     private MessageServiceImpl messageServiceImpl;
-//    stubs
+    
+    	/**
+    	 * Stubs Intializing For Testing
+    	 */
     	private Message firstMessage;
 		private Message secondMessage;
 		private Message thirdMessage;
@@ -34,7 +43,13 @@ class MessageServiceTest {
     
     @BeforeEach
     public void setUp() {
-    	MockitoAnnotations.initMocks(this); //invoke mock
+    	/**
+    	 * It initializes fields annotated with Mockito annotations.
+    	 */
+    	MockitoAnnotations.initMocks(this); 
+    	/**
+    	 * Stubs Declaration For Testing
+    	 */
     	messageList = new ArrayList<>();
     	firstMessage = new Message(1,1,2,"Hi");
     	secondMessage = new Message(1,1,2,"Hello");
@@ -45,6 +60,9 @@ class MessageServiceTest {
     }
     @AfterEach
     public void tearDown() {
+    	/**
+    	 * Stubs Clean-Up
+    	 */
         messageRepository.deleteAll();
         firstMessage = secondMessage = null;
         messageList = null;
@@ -70,11 +88,12 @@ class MessageServiceTest {
      * @throws Exception
      */
     @Test
-    public void test_sendMessage_GivenSameSender() throws Exception{
+    public void test_sendMessage_GivenSameSender_ShouldThrowSameSenderException() throws Exception{
     	BDDMockito.given(messageRepository.save(thirdMessage))
     	.willThrow(new SameSenderException());
     	assertThrows(SameSenderException.class,()->messageServiceImpl.sendMessage(thirdMessage));
     }
+    
     
     /**
      * Given Sender Id Should Return 
@@ -91,11 +110,11 @@ class MessageServiceTest {
     }
     
     /**
-     * Invalid sender id throw Exception
+     * NonExisting sender id throw Exception
      * @throws Exception
      */
     @Test
-    public void test_messagesSentByUser() throws Exception{
+    public void test_messagesSentByUser_GivenNonExistingSenderId_ShouldThrowNoMessageException() throws Exception{
     	BDDMockito.given(messageRepository.findBySenderId(4))
     	.willThrow(new NoMessageException());
     	assertThrows(NoMessageException.class,()->messageServiceImpl.messageByUserId(4));
@@ -115,11 +134,11 @@ class MessageServiceTest {
     }
     
     /**
-     * invalid Message id Should Throw Exception
+     * NonExisting Message id Should Throw Exception
      * @throws Exception
      */
     @Test
-    public void test_deleteMessageByMessageId() throws Exception{
+    public void test_deleteMessageByMessageId_GivenNonExistingMessageId_ShouldThrowNoMessageException() throws Exception{
     	BDDMockito.given(messageRepository.findBySenderId(message.getMessageId()))
     	.willThrow(new NoMessageException());
     	assertThrows(NoMessageException.class,()->messageServiceImpl.deleteMessageByMessageId(1,4));
@@ -144,7 +163,7 @@ class MessageServiceTest {
      * Throw exception when no Message available
      */
     @Test
-    public void test_showAllMessageByUser() throws Exception{
+    public void test_showAllMessageByUser_ShouldThrowNoMessageException() throws Exception{
     	BDDMockito.given(messageRepository.findAll())
     	.willThrow(new NoMessageException());
     	assertThrows(NoMessageException.class,()->messageServiceImpl.showAllMessage());
@@ -170,7 +189,7 @@ class MessageServiceTest {
      * @throws Exception
      */
     @Test
-    public void test_allMessageSentOnAdvertise() throws Exception{
+    public void test_allMessageSentOnAdvertise_GivenNonExistingAdvertiseId_ShouldThrowNoMessageException() throws Exception{
     	BDDMockito.given(messageRepository.findByAdvertiseId(message.getAdv_id()))
     	.willThrow(new NoMessageException());
     	assertThrows(NoMessageException.class,()->messageServiceImpl.allMessageSentOnAdvertise(4));

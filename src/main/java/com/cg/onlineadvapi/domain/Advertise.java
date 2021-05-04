@@ -4,14 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -21,6 +18,7 @@ import javax.validation.constraints.NotBlank;
 
 /**
  * Advertise Table created
+ * 
  * @author hvishwak
  *
  */
@@ -35,49 +33,47 @@ public class Advertise {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer advertiseId;
 	/**
-	 * Advertise title 
+	 * Advertise title
+	 * 
 	 * @NotBlank used to give required error message if field is empty
 	 */
 	@NotBlank(message = "Title is required")
-	//@Pattern(regexp = "[A-Za-z0-9_.]*",message = "Advertise title cannot contain special chracters")
 	private String advertiseTitle;
 	/**
-	 * Advertise category this define the type of advertise 
+	 * Advertise category this define the type of advertise
+	 * 
 	 * @NotBlank used to give required error message if field is empty
-	 * @column used with attribute updatable with false value this field cannot be modified
-	 * Regex Pattern is also used with error message
+	 * @column used with attribute updatable with false value this field cannot be
+	 *         modified Regex Pattern is also used with error message
 	 */
 	@NotBlank(message = "Category is required")
-	//@Column(updatable = false)
-	@Pattern(regexp = "[a-zA-Z_.]*",message = "Category cannot contain special characters or number")
+	@Pattern(regexp = "[a-zA-Z_.]*", message = "Category cannot contain special characters or number")
 	private String category;
 	/**
 	 * Advertise Price it should not be empty
+	 * 
 	 * @DecimalMin denotes it takes numbers only that also 1 or more than 1
 	 */
 	@NotNull(message = "It cannot be empty")
-	@DecimalMin(value = "0", inclusive = false,message="Product Price should be greater than or equal to 1")	
+	@DecimalMin(value = "0", inclusive = false, message = "Product Price should be greater than or equal to 1")
 	private Double price;
 	/**
-	 * Advertise description 
-	 * It can be set empty
+	 * Advertise description It can be set empty
 	 */
 	private String description;
 	/**
-	 * Advertise status
-	 * Denote the status of advertise posted
-	 * default value is NEW 
+	 * Advertise status Denote the status of advertise posted default value is NEW
 	 */
 	private Integer status;
-	
+
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="adv_id" ,referencedColumnName = "advertiseId")
-	private List<Message> message=new ArrayList<>();
+	@JoinColumn(name = "adv_id", referencedColumnName = "advertiseId")
+	private List<Message> message = new ArrayList<>();
 
 	private Integer user_id;
-	
+
 	private Integer category_id;
-	
+
 	public Advertise(Integer advertiseId, @NotBlank(message = "Title is required") String advertiseTitle,
 			@NotBlank(message = "Category is required") @Pattern(regexp = "[a-zA-Z_.]*", message = "Category cannot contain special characters or number") String category,
 			@NotNull(message = "It cannot be empty") @DecimalMin(value = "1.0", inclusive = false, message = "Product Price should be greater than or equal to 1") Double price,
@@ -113,6 +109,7 @@ public class Advertise {
 
 	/**
 	 * getter and setter of above fields
+	 * 
 	 * @return
 	 */
 	public Integer getAdvertiseId() {
@@ -122,8 +119,7 @@ public class Advertise {
 	public void setUser_id(Integer user_id) {
 		this.user_id = user_id;
 	}
-	
-	
+
 	public Integer getUser_id() {
 		return user_id;
 	}
@@ -175,7 +171,5 @@ public class Advertise {
 	public void setCategory_id(Integer category_id) {
 		this.category_id = category_id;
 	}
-	
-	
-	
-	}
+
+}
